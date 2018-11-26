@@ -12,11 +12,16 @@
     <div class="fx-row fx-x1">
       <!-- gate tray -->
       <div class="fx-col fx-x2">
-        <GateTray :onSelectGate="pushGate" />
+        <GateTray v-if="!collapsed" :onSelectGate="pushGate" />
+        <MeasurementResult v-else :result="measurementRes"/>
       </div><!-- end of gate tray -->
       <!-- options -->
-      <div class="fx-col fx-x1">
-        option
+      <div class="fx-col fx-x1 options">
+        <button v-if="!collapsed" @click="measure()">Measure once</button>
+        <button v-else @click="remeasure()">Measure again</button>
+        <button v-if="!collapsed" @click="measure(1000)">Measure 1000 times</button>
+        <button v-else @click="unmeasure()">Undo measurement</button>
+        <button class="is-dark" @click="reset()">Reset</button>
       </div><!-- end of options -->
     </div><!-- end of controller row -->
   </div>
@@ -25,24 +30,49 @@
 <script>
 import GateStage from '../components/GateStage'
 import GateTray from '../components/GateTray'
+import MeasurementResult from '../components/MeasurementResult'
 
 export default {
   name: 'Composer',
   components: {
     GateStage,
-    GateTray
+    GateTray,
+    MeasurementResult
   },
   data () {
     return {
-      appliedGates: []
+      appliedGates: [],
+      collapsed: false,
+      lastBatchSize: 0,
+      measurementRes: {}
     }
   },
   methods: {
     pushGate (gate) {
-      this.appliedGates.push(gate.symbol)
+      if (!this.collapsed) {
+        this.appliedGates.push(gate.symbol)
+      }
     },
     popGate () {
-      this.appliedGates.splice(this.appliedGates.length - 1, 1)
+      if (!this.collapsed) {
+        this.appliedGates.splice(this.appliedGates.length - 1, 1)
+      }
+    },
+    measure (batchSize = 1) {
+      this.lastBatchSize = batchSize
+      this.collapsed = true
+    },
+    unmeasure () {
+      this.collapsed = false
+    },
+    remeasure () {
+      this.unmeasure()
+      this.measure(this.lastBatchSize)
+    },
+    reset () {
+      this.appliedGates = []
+      this.collapsed = false
+      this.measurementRes = {}
     }
   }
 }
@@ -59,6 +89,22 @@ export default {
     .title {
       text-align: center;
       margin: 10px auto;
+    }
+
+    .options {
+      button {
+        background-color: white;
+        color: black;
+        border-radius: 3px;
+        padding: 7px;
+        margin: 3px;
+
+        &.is-dark {
+          background-color: black;
+          color: white;
+          border: 1px solid white;
+        }
+      }
     }
   }
 </style>
