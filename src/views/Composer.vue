@@ -12,7 +12,7 @@
     <div class="fx-row fx-x1">
       <!-- gate tray -->
       <div class="fx-col fx-x2">
-        <GateTray v-if="!collapsed" :onSelectGate="pushGate" />
+        <GateTray v-if="!collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" />
         <MeasurementResult v-else :result="measurementRes"/>
       </div><!-- end of gate tray -->
       <!-- options -->
@@ -57,31 +57,46 @@ export default {
     })
   },
   methods: {
+    previewGate (gate) {
+      if (!this.collapsed) {
+        Qapi.previewGate(gate.symbol).then(state => console.log(state))
+      }
+    },
     pushGate (gate) {
       if (!this.collapsed) {
         this.appliedGates.push(gate.symbol)
+        Qapi.pushGate(gate.symbol).then(state => console.log(state))
       }
     },
     popGate () {
       if (!this.collapsed) {
         this.appliedGates.splice(this.appliedGates.length - 1, 1)
+        Qapi.popGate().then(state => console.log(state))
       }
     },
     measure (batchSize = 1) {
       this.lastBatchSize = batchSize
-      this.collapsed = true
+
+      Qapi.measure(batchSize).then(res => {
+        console.log(res)
+        this.measurementRes = res
+        this.collapsed = true
+      })
     },
     unmeasure () {
       this.collapsed = false
+
+      return Qapi.unmeasure()
     },
     remeasure () {
-      this.unmeasure()
-      this.measure(this.lastBatchSize)
+      this.unmeasure().then(() => this.measure(this.lastBatchSize))
     },
     reset () {
       this.appliedGates = []
       this.collapsed = false
       this.measurementRes = {}
+
+      Qapi.reset().then(state => console.log(state))
     }
   }
 }

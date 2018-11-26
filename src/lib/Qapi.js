@@ -20,9 +20,9 @@ const Qapi = {
   getStatus: () => requestHandler('get', '/state'),
   reset: () => requestHandler('post', '/reset'),
   previewGate: gateSymbol => requestHandler('get', '/gate/' + gateSymbol),
-  pushGate: gateSymbol => requestHandler('put', '/gate' + gateSymbol),
+  pushGate: gateSymbol => requestHandler('put', '/gate/' + gateSymbol),
   popGate: () => requestHandler('delete', '/gate'),
-  measure: batchSize => requestHandler('post', '/measure' + batchSize),
+  measure: batchSize => requestHandler('post', '/measure/' + batchSize),
   unmeasure: () => requestHandler('post', '/unmeasure')
 }
 

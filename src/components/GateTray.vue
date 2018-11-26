@@ -18,7 +18,7 @@ import GateIcon from '../components/GateIcon'
 
 export default {
   name: 'GateTray',
-  props: ['onSelectGate'],
+  props: ['onFocusGate', 'onSelectGate'],
   components: {
     GateIcon
   },
@@ -37,9 +37,10 @@ export default {
     onClickGate (gate) {
       if (gate !== this.focusedGate) {
         this.focusedGate = gate
+        this.onFocusGate(gate)
       } else {
-        this.onSelectGate(gate)
         this.focusedGate = {}
+        this.onSelectGate(gate)
       }
     }
   }
