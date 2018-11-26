@@ -32,6 +32,8 @@ import GateStage from '../components/GateStage'
 import GateTray from '../components/GateTray'
 import MeasurementResult from '../components/MeasurementResult'
 
+import Qapi from '../lib/Qapi'
+
 export default {
   name: 'Composer',
   components: {
@@ -46,6 +48,13 @@ export default {
       lastBatchSize: 0,
       measurementRes: {}
     }
+  },
+  async mounted () {
+    Qapi.getStatus().then(state => {
+      console.log(state)
+      this.appliedGates = state.gates
+      this.collapsed = state.collapsed !== false
+    })
   },
   methods: {
     pushGate (gate) {
