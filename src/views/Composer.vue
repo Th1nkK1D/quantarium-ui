@@ -6,24 +6,13 @@
     </div><!-- end of title row -->
     <!-- stage -->
     <div class="fx-row fx-x2">
-      <GateIcon v-for="(gateSym, g) in appliedGates" :key="g" :symbol="gateSym" />
-      <span v-if="appliedGates.length > 0" @click="removeGate()">Remove</span>
+      <GateStage :appliedGates="appliedGates" :onRemoveGate="popGate"/>
     </div><!-- end of stage -->
     <!-- controller row -->
     <div class="fx-row fx-x1">
       <!-- gate tray -->
       <div class="fx-col fx-x2">
-        <div class="fx-row">
-          <!-- gates list -->
-          <div class="fx-col fx-x2">
-            <div class="fx-row">
-              <GateIcon v-for="gate in availableGates" :key="gate.symbol" :symbol="gate.symbol" :onClickGate="() => onClickGate(gate)" />
-            </div>
-          </div><!-- end of gates list -->
-          <div class="fx-col fx-x1">
-            {{ focusedGate }}
-          </div>
-        </div>
+        <GateTray :onSelectGate="pushGate" />
       </div><!-- end of gate tray -->
       <!-- options -->
       <div class="fx-col fx-x1">
@@ -34,35 +23,25 @@
 </template>
 
 <script>
-import GateIcon from '../components/GateIcon'
+import GateStage from '../components/GateStage'
+import GateTray from '../components/GateTray'
 
 export default {
   name: 'Composer',
   components: {
-    GateIcon
+    GateStage,
+    GateTray
   },
   data () {
     return {
-      availableGates: [
-        { symbol: 'h', name: 'Hadamard Gate', desc: 'desc' },
-        { symbol: 'x', name: 'Pauli-X Gate', desc: 'desc' },
-        { symbol: 'y', name: 'Pauli-Y Gate', desc: 'desc' },
-        { symbol: 'z', name: 'Pauli-Z Gate', desc: 'desc' }
-      ],
-      appliedGates: [],
-      focusedGate: {}
+      appliedGates: []
     }
   },
   methods: {
-    onClickGate (gate) {
-      if (gate !== this.focusedGate) {
-        this.focusedGate = gate
-      } else {
-        this.appliedGates.push(gate.symbol)
-        this.focusedGate = {}
-      }
+    pushGate (gate) {
+      this.appliedGates.push(gate.symbol)
     },
-    removeGate () {
+    popGate () {
       this.appliedGates.splice(this.appliedGates.length - 1, 1)
     }
   }
