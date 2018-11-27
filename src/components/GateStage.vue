@@ -1,5 +1,5 @@
 <template>
-  <div class="fx-row">
+  <div class="fx-row gate-stage">
     <GateIcon v-for="(gateSym, g) in appliedGates" :key="g" :symbol="gateSym" />
     <span v-if="appliedGates.length > 0" @click="onRemoveGate">X</span>
   </div>
@@ -16,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .gate-stage {
+    margin: auto 0;
+  }
+</style>
