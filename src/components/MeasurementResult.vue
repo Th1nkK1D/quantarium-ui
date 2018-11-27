@@ -1,13 +1,13 @@
 <template>
   <div class="measurement-result">
-    {{ result }}
+    {{ measurement }}
   </div>
 </template>
 
 <script>
 export default {
   name: 'MeasurementResult',
-  props: ['result']
+  props: ['measurement']
 }
 </script>
 

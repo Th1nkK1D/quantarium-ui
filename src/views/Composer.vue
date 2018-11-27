@@ -13,7 +13,7 @@
       <!-- gate tray -->
       <div class="fx-col fx-x2">
         <GateTray v-if="!collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" />
-        <MeasurementResult v-else :result="measurementRes"/>
+        <MeasurementResult v-else :measurement="measurement" />
       </div><!-- end of gate tray -->
       <!-- options -->
       <div class="fx-col fx-x1 options">
@@ -45,8 +45,10 @@ export default {
     return {
       appliedGates: [],
       collapsed: false,
-      lastBatchSize: 0,
-      measurementRes: {}
+      measurement: {
+        batchSize: 0,
+        result: [0, 0]
+      }
     }
   },
   async mounted () {
@@ -54,6 +56,7 @@ export default {
       console.log(state)
       this.appliedGates = state.gates
       this.collapsed = state.collapsed !== false
+      this.measurement = state.measurement
     })
   },
   methods: {
@@ -75,26 +78,33 @@ export default {
       }
     },
     measure (batchSize = 1) {
-      this.lastBatchSize = batchSize
-
-      Qapi.measure(batchSize).then(res => {
-        console.log(res)
-        this.measurementRes = res
+      Qapi.measure(batchSize).then(measurement => {
+        console.log(measurement)
+        this.measurement = measurement
         this.collapsed = true
       })
     },
     unmeasure () {
+      this.measurement = {
+        batchSize: 0,
+        result: [0, 0]
+      }
       this.collapsed = false
 
       return Qapi.unmeasure()
     },
     remeasure () {
-      this.unmeasure().then(() => this.measure(this.lastBatchSize))
+      const batchSize = this.measurement.batchSize
+
+      this.unmeasure().then(() => this.measure(batchSize))
     },
     reset () {
       this.appliedGates = []
       this.collapsed = false
-      this.measurementRes = {}
+      this.measurement = {
+        batchSize: 0,
+        result: [0, 0]
+      }
 
       Qapi.reset().then(state => console.log(state))
     }
