@@ -1,5 +1,5 @@
 <template>
-  <div class="fx-col composer">
+  <div class="fx-col qubit-composer">
     <!-- title row -->
     <div class="fx-row">
       <h3 class="title">Quantarium | Composer</h3>
@@ -28,14 +28,14 @@
 </template>
 
 <script>
-import GateStage from '../components/GateStage'
-import GateTray from '../components/GateTray'
-import MeasurementResult from '../components/MeasurementResult'
+import GateStage from '@/components/GateStage'
+import GateTray from '@/components/GateTray'
+import MeasurementResult from '@/components/MeasurementResult'
 
-import Qapi from '../lib/Qapi'
+import Qapi from '@/lib/Qapi'
 
 export default {
-  name: 'Composer',
+  name: 'QubitComposer',
   components: {
     GateStage,
     GateTray,
@@ -113,7 +113,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .composer {
+  .qubit-composer {
     width: 100vw;
     height: 100vh;
     background-color: #2E1A57;
