@@ -114,8 +114,8 @@ export default {
 
 <style lang="scss" scoped>
   .qubit-composer {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: #2E1A57;
     color: white;
     overflow: hidden;
