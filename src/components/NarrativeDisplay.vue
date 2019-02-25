@@ -1,16 +1,17 @@
 <template>
   <div class="narrative-display">
     <div class="content">
-      OK dude, this is narrator. Just follow me.
-      <br>
-      Good luck have fun!
+      {{ text }}
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NarrativeDisplay'
+  name: 'NarrativeDisplay',
+  props: [
+    'text'
+  ]
 }
 </script>
 

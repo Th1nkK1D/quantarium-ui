@@ -4,12 +4,14 @@
       <QubitComposer />
     </div>
     <div class="fx-x1">
-      <NarrativeDisplay />
+      <NarrativeDisplay :text="narrator.text" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+
 import QubitComposer from '@/components/QubitComposer'
 import NarrativeDisplay from '@/components/NarrativeDisplay'
 
@@ -18,6 +20,19 @@ export default {
   components: {
     QubitComposer,
     NarrativeDisplay
+  },
+  computed: {
+    ...mapState([
+      'narrator'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'loadAllScenes'
+    ])
+  },
+  mounted () {
+    this.loadAllScenes()
   }
 }
 </script>

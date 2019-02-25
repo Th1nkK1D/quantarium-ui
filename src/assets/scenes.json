@@ -1,0 +1,39 @@
+[
+  {
+    "global": {
+      "apiServer": "localhost:3000"
+    },
+    "stage": {
+      "id": 0,
+      "storyMode": true
+    }
+  },
+  {
+    "stage": {
+      "id": 1,
+      "passConditions": [
+        "text-read"
+      ]
+    },
+    "narrator": {
+      "text": [
+        "We can’t deny that computer is very important to human life nowaday.",
+        "But there are still many complex problem that can’t be solved by classical computer, even we try to add more computing power.",
+        "A new way of computing is needed."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "id": 2,
+      "passConditions": [
+        "text-read"
+      ]
+    },
+    "narrator": {
+      "text": [
+        "So quantum computing was invented using modern physics theory like quantum physics, and it change the way that computer work completely."
+      ]
+    }
+  }
+]
