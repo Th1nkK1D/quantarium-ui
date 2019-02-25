@@ -1,17 +1,30 @@
 <template>
   <div class="narrative-display">
     <div class="content">
-      {{ text }}
+      <p v-for="t in narratorState.text" :key="t">{{ t }}</p>
+    </div>
+    <div class="next-btn" @click="onClickNext()">
+      >
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'NarrativeDisplay',
   props: [
-    'text'
-  ]
+    'narratorState'
+  ],
+  methods: {
+    ...mapActions([
+      'fireEvent'
+    ]),
+    onClickNext() {
+      this.fireEvent('text-read')
+    }
+  }
 }
 </script>
 
@@ -22,6 +35,7 @@ export default {
     height: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
 
     .content {
       color: white;
@@ -29,6 +43,14 @@ export default {
       max-height: calc(100% - 4em);
       margin: auto;
       text-align: center;
+    }
+
+    .next-btn {
+      color: white;
+      position: absolute;
+      bottom: 1em;
+      right: 1em;
+      padding: .5em;
     }
   }
 </style>

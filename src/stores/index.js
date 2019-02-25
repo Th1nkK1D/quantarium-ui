@@ -43,6 +43,9 @@ const mutations = {
   },
   applyScene (state, i) {
     Object.keys(state.story.scenes[i]).forEach(key => Object.assign(state[key], state.story.scenes[i][key]))
+  },
+  popPassCondition (state) {
+    state.stage.passConditions.splice(0, 1)
   }
 }
 
@@ -51,6 +54,21 @@ const actions = {
     commit('initScenes')
     commit('applyScene', 0)
     commit('applyScene', 1)
+  },
+  fireEvent ({ commit, state }, event) {
+    console.log(event)
+
+    if (event === state.stage.passConditions[0]) {
+      commit('popPassCondition')
+
+      if (state.stage.passConditions.length === 0) {
+        if (state.stage.id === state.story.total - 1) {
+          console.log('story mode completed')
+        } else {
+          commit('applyScene', state.stage.id + 1)
+        }
+      }
+    }
   }
 }
 

@@ -6,6 +6,9 @@
     "stage": {
       "id": 0,
       "storyMode": true
+    },
+    "composer": {
+      "isDisplay": false
     }
   },
   {
@@ -32,7 +35,8 @@
     },
     "narrator": {
       "text": [
-        "So quantum computing was invented using modern physics theory like quantum physics, and it change the way that computer work completely."
+        "So quantum computing was invented using modern physics theory like quantum physics,",
+        "and it change the way that computer work completely."
       ]
     }
   }

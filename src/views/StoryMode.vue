@@ -1,10 +1,10 @@
 <template>
   <div class="story-mode">
-    <div class="composer-wrapper">
+    <div class="composer-wrapper" v-if="composer.isDisplay">
       <QubitComposer />
     </div>
     <div class="fx-x1">
-      <NarrativeDisplay :text="narrator.text" />
+      <NarrativeDisplay :narratorState="narrator" />
     </div>
   </div>
 </template>
@@ -23,7 +23,8 @@ export default {
   },
   computed: {
     ...mapState([
-      'narrator'
+      'narrator',
+      'composer'
     ])
   },
   methods: {
