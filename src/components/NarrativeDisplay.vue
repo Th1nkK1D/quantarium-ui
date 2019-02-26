@@ -21,7 +21,7 @@ export default {
     ...mapActions([
       'fireEvent'
     ]),
-    onClickNext() {
+    onClickNext () {
       this.fireEvent('text-read')
     }
   }

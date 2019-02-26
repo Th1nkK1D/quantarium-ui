@@ -1,8 +1,5 @@
 [
   {
-    "global": {
-      "apiServer": "localhost:3000"
-    },
     "stage": {
       "id": 0,
       "storyMode": true

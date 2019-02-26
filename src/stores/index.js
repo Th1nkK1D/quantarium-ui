@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import baseConfig from '@/assets/baseConfig.json'
 import scenes from '@/assets/scenes.json'
 
 Vue.use(Vuex)
@@ -41,8 +42,8 @@ const mutations = {
       total: scenes.length
     }
   },
-  applyScene (state, i) {
-    Object.keys(state.story.scenes[i]).forEach(key => Object.assign(state[key], state.story.scenes[i][key]))
+  applySetting (state, setting) {
+    Object.keys(setting).forEach(key => Object.assign(state[key], setting[key]))
   },
   popPassCondition (state) {
     state.stage.passConditions.splice(0, 1)
@@ -50,10 +51,11 @@ const mutations = {
 }
 
 const actions = {
-  loadAllScenes ({ commit }) {
+  loadAllScenes ({ commit, state }) {
     commit('initScenes')
-    commit('applyScene', 0)
-    commit('applyScene', 1)
+    commit('applySetting', baseConfig)
+    commit('applySetting', state.story.scenes[0])
+    commit('applySetting', state.story.scenes[1])
   },
   fireEvent ({ commit, state }, event) {
     console.log(event)
@@ -65,7 +67,7 @@ const actions = {
         if (state.stage.id === state.story.total - 1) {
           console.log('story mode completed')
         } else {
-          commit('applyScene', state.stage.id + 1)
+          commit('applySetting', state.story.scenes[state.stage.id + 1])
         }
       }
     }
