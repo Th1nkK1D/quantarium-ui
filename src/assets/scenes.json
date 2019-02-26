@@ -36,5 +36,64 @@
         "and it change the way that computer work completely."
       ]
     }
+  },
+  {
+    "stage": {
+      "id": 3,
+      "passConditions": [
+        "text-read"
+      ]
+    },
+    "narrator": {
+      "text": [
+        "In classical computer, smallest unit to store data is bit, which can be either 0 or 1 state.",
+        "So the only way that we can change bit state is bitflip, from 0 to 1 or 1 to 0."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "id": 4,
+      "passConditions": [
+        "text-read"
+      ]
+    },
+    "narrator": {
+      "text": [
+        "But for quantum computer, we use “Qubit” which can be represented with a sphere.",
+        "Qubit state can be 0, 1 and also any point in between on the sphere."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "id": 5,
+      "passConditions": [
+        "text-read"
+      ]
+    },
+    "narrator": {
+      "text": [
+        "We can change the qubit state by rotating it around the sphere in any angle and direction.",
+        "Operators that rotate qubit state are called “Quantum Gates”"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "id": 6,
+      "passConditions": [
+        "text-read"
+      ]
+    },
+    "narrator": {
+      "text": [
+        "This is qubit composer where you can apply basic gates to the qubit.",
+        "Let’s apply Hadamard gate by drag it to the timeline."
+      ]
+    },
+    "composer": {
+      "isDisplay": true
+    }
   }
 ]

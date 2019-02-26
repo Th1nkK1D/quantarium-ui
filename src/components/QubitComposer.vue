@@ -17,11 +17,11 @@
       </div><!-- end of gate tray -->
       <!-- options -->
       <div class="fx-col fx-x1 options">
-        <button v-if="!collapsed" @click="measure()">Measure once</button>
-        <button v-else @click="remeasure()">Measure again</button>
+        <!-- <button v-if="!collapsed" @click="measure()">Measure once</button>
+        <button v-else @click="remeasure()">Measure again</button> -->
         <button v-if="!collapsed" @click="measure(1000)">Measure 1000 times</button>
         <button v-else @click="unmeasure()">Undo measurement</button>
-        <button class="is-dark" @click="reset()">Reset</button>
+        <!-- <button class="is-dark" @click="reset()">Reset</button> -->
       </div><!-- end of options -->
     </div><!-- end of controller row -->
   </div>

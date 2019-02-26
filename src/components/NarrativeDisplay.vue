@@ -40,9 +40,13 @@ export default {
     .content {
       color: white;
       max-width: calc(100% - 4em);
-      max-height: calc(100% - 4em);
       margin: auto;
       text-align: center;
+
+      p {
+        font-size: 1.2em;
+        margin: .2em 0;
+      }
     }
 
     .next-btn {
