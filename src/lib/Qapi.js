@@ -1,10 +1,8 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3000/api'
-
-async function requestHandler (method, endpoint) {
+async function requestHandler (url, method, endpoint) {
   try {
-    const res = await axios[method](API_URL + endpoint)
+    const res = await axios[method](url + endpoint)
 
     if (res.status !== 200) {
       console.log(res)
@@ -17,13 +15,13 @@ async function requestHandler (method, endpoint) {
 }
 
 const Qapi = {
-  getStatus: () => requestHandler('get', '/state'),
-  reset: () => requestHandler('post', '/reset'),
-  previewGate: gateSymbol => requestHandler('get', '/gate/' + gateSymbol),
-  pushGate: gateSymbol => requestHandler('put', '/gate/' + gateSymbol),
-  popGate: () => requestHandler('delete', '/gate'),
-  measure: batchSize => requestHandler('post', '/measure/' + batchSize),
-  unmeasure: () => requestHandler('post', '/unmeasure')
+  getStatus: url => requestHandler(url, 'get', '/state'),
+  reset: url => requestHandler(url, 'post', '/reset'),
+  previewGate: (url, gateSymbol) => requestHandler(url, 'get', '/gate/' + gateSymbol),
+  pushGate: (url, gateSymbol) => requestHandler(url, 'put', '/gate/' + gateSymbol),
+  popGate: url => requestHandler(url, 'delete', '/gate'),
+  measure: (url, batchSize) => requestHandler(url, 'post', '/measure/' + batchSize),
+  unmeasure: url => requestHandler(url, 'post', '/unmeasure')
 }
 
 export default Qapi
