@@ -22,7 +22,10 @@ export default {
       'fireEvent'
     ]),
     onClickNext () {
-      this.fireEvent('text-read')
+      this.fireEvent({
+        trigger: 'narrator',
+        parameter: 'text-read'
+      })
     }
   }
 }

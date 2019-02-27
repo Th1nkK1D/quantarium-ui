@@ -57,10 +57,16 @@ const actions = {
     commit('applySetting', state.story.scenes[0])
     commit('applySetting', state.story.scenes[1])
   },
-  fireEvent ({ commit, state }, event) {
-    console.log(event)
+  fireEvent ({ commit, state }, payload) {
+    console.log(payload)
 
-    if (event === state.stage.passConditions[0]) {
+    const { trigger, parameter, result, errorRate } = state.stage.passConditions[0]
+
+    if (
+      (!trigger || trigger === payload.trigger) &&
+      (!parameter || parameter === payload.parameter) &&
+      (!result || Math.abs(result - payload.result) < errorRate)
+    ) {
       commit('popPassCondition')
 
       if (state.stage.passConditions.length === 0) {
