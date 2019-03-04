@@ -1,0 +1,6 @@
+[
+   { "symbol": "h", "name": "Hadamard Gate", "description": "Combination of two rotations, π about the Z-axis followed by π/2 about the Y-axis" },
+   { "symbol": "x", "name": "Pauli-X Gate", "description": "Apply rotation around the X-axis by π radians" },
+   { "symbol": "y", "name": "Pauli-Y Gate", "description": "Apply rotation around the Y-axis by π radians" },
+   { "symbol": "z", "name": "Pauli-Z Gate", "description": "Apply rotation around the Z-axis by π radians" }
+]

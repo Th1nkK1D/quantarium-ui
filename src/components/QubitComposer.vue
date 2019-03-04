@@ -12,7 +12,7 @@
     <div class="fx-row fx-x1">
       <!-- gate tray -->
       <div class="fx-col fx-x2">
-        <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" />
+        <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" :availableGates="composer.availableGates" />
         <MeasurementResult v-else :measurement="composer.measurement" />
       </div><!-- end of gate tray -->
       <!-- options -->
@@ -45,6 +45,7 @@ export default {
   },
   methods: {
     ...mapActions([
+      'initComposer',
       'getComposerStatus',
       'previewGate',
       'pushGate',
@@ -54,6 +55,7 @@ export default {
     ])
   },
   mounted () {
+    this.initComposer()
     this.getComposerStatus()
   }
 }

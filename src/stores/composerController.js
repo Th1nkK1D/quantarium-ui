@@ -1,9 +1,10 @@
 import Qapi from '../lib/Qapi'
+import gates from '../assets/gates.json'
 
 const state = {
   composer: {
     isDisplay: false,
-    availableGates: [],
+    availableGates: gates.map(gate => gate.symbol),
     allowMeasure: false,
     appliedGates: [],
     collapsed: false,
@@ -27,7 +28,10 @@ const mutations = {
 }
 
 const actions = {
-  async getComposerStatus ({ commit, state }) {
+  initComposer ({ commit }) {
+    commit('updateComposerStates', state)
+  },
+  async getComposerStatus ({ state, commit }) {
     const newState = await Qapi.getStatus(state.global.apiServer)
     console.log(newState)
 
@@ -43,15 +47,20 @@ const actions = {
       console.log(newState)
     }
   },
-  async pushGate ({ commit, state }, gate) {
+  async pushGate ({ state, commit, dispatch }, gate) {
     if (!state.composer.collapsed) {
       commit('pushAppliedGate', gate.symbol)
 
       const newState = await Qapi.pushGate(state.global.apiServer, gate.symbol)
       console.log(newState)
+
+      dispatch('fireEvent', {
+        trigger: 'composer-gate-push',
+        parameter: gate.symbol
+      })
     }
   },
-  async popGate ({ commit, state }) {
+  async popGate ({ state, commit }) {
     if (!state.composer.collapsed) {
       commit('popAppliedGate')
 
@@ -59,7 +68,7 @@ const actions = {
       console.log(newState)
     }
   },
-  async measure ({ commit, state }, batchSize = 1) {
+  async measure ({ state, commit }, batchSize = 1) {
     if (!state.composer.collapsed) {
       const measurement = await Qapi.measure(state.global.apiServer, batchSize)
       console.log(measurement)
@@ -70,7 +79,7 @@ const actions = {
       })
     }
   },
-  async unmeasure ({ commit, state }) {
+  async unmeasure ({ state, commit }) {
     if (state.composer.collapsed) {
       commit('updateComposerStates', {
         collapsed: true,
