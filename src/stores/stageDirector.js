@@ -50,20 +50,22 @@ const actions = {
   fireEvent ({ state, commit, dispatch }, payload) {
     console.log(payload)
 
-    const { trigger, parameter, result, errorRate } = state.stage.passConditions[0]
+    if (state.stage.storyMode) {
+      const { trigger, parameter, result, errorRate } = state.stage.passConditions[0]
 
-    if (
-      (!trigger || trigger === payload.trigger) &&
-      (!parameter || parameter === payload.parameter) &&
-      (!result || Math.abs(result - payload.result) < errorRate)
-    ) {
-      commit('popPassCondition')
+      if (
+        (!trigger || trigger === payload.trigger) &&
+        (!parameter || parameter === payload.parameter) &&
+        (!result || Math.abs(result - payload.result) < errorRate)
+      ) {
+        commit('popPassCondition')
 
-      if (state.stage.passConditions.length === 0) {
-        if (state.stage.id === state.story.total - 1) {
-          console.log('story mode completed')
-        } else {
-          dispatch('loadNextScene')
+        if (state.stage.passConditions.length === 0) {
+          if (state.stage.id === state.story.total - 1) {
+            console.log('story mode completed')
+          } else {
+            dispatch('loadNextScene')
+          }
         }
       }
     }

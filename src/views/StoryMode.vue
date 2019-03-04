@@ -29,11 +29,13 @@ export default {
   },
   methods: {
     ...mapActions([
-      'loadAllScenes'
+      'loadAllScenes',
+      'resetComposer'
     ])
   },
-  mounted () {
-    this.loadAllScenes()
+  async mounted () {
+    await this.resetComposer()
+    await this.loadAllScenes()
   }
 }
 </script>

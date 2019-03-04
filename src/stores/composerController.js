@@ -3,7 +3,7 @@ import gates from '../assets/gates.json'
 
 const state = {
   composer: {
-    isDisplay: false,
+    isDisplay: true,
     availableGates: gates.map(gate => gate.symbol),
     allowMeasure: true,
     appliedGates: [],
@@ -33,6 +33,9 @@ const actions = {
     console.log(newState)
 
     commit('updateComposerStates', {
+      isDisplay: true,
+      availableGates: gates.map(gate => gate.symbol),
+      allowMeasure: true,
       appliedGates: newState.gates,
       collapsed: newState.collapsed !== false,
       measurement: newState.measurement

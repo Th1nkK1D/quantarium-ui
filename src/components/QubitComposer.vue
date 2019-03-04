@@ -45,17 +45,12 @@ export default {
   },
   methods: {
     ...mapActions([
-      'resetComposer',
-      'getComposerStatus',
       'previewGate',
       'pushGate',
       'popGate',
       'measure',
       'unmeasure'
     ])
-  },
-  mounted () {
-    this.resetComposer()
   }
 }
 </script>
