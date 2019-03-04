@@ -1,4 +1,3 @@
-import baseConfig from '@/assets/baseConfig.json'
 import scenes from '@/assets/scenes.json'
 
 const state = {
@@ -34,7 +33,6 @@ const mutations = {
 const actions = {
   loadAllScenes ({ commit, state }) {
     commit('initScenes')
-    commit('applySetting', baseConfig)
     commit('applySetting', state.story.scenes[0])
     commit('applySetting', state.story.scenes[1])
   },

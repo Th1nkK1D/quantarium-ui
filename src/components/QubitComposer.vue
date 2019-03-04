@@ -6,18 +6,18 @@
     </div><!-- end of title row -->
     <!-- stage -->
     <div class="fx-row fx-x2">
-      <GateStage :appliedGates="appliedGates" :onRemoveGate="popGate"/>
+      <GateStage :appliedGates="composer.appliedGates" :onRemoveGate="popGate"/>
     </div><!-- end of stage -->
     <!-- controller row -->
     <div class="fx-row fx-x1">
       <!-- gate tray -->
       <div class="fx-col fx-x2">
-        <GateTray v-if="!collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" />
-        <MeasurementResult v-else :measurement="measurement" />
+        <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" />
+        <MeasurementResult v-else :measurement="composer.measurement" />
       </div><!-- end of gate tray -->
       <!-- options -->
       <div class="fx-col fx-x1 options">
-        <button v-if="!collapsed" @click="measure(1000)">Measure 1000 times</button>
+        <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
         <button v-else @click="unmeasure()">Undo measurement</button>
       </div><!-- end of options -->
     </div><!-- end of controller row -->
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 import GateStage from '@/components/GateStage'
 import GateTray from '@/components/GateTray'
@@ -38,68 +38,20 @@ export default {
     GateTray,
     MeasurementResult
   },
-  data () {
-    return {
-      appliedGates: [],
-      collapsed: false,
-      measurement: {
-        batchSize: 0,
-        result: [0, 0]
-      }
-    }
+  computed: {
+    ...mapState([
+      'composer'
+    ])
   },
   methods: {
     ...mapActions([
-      'getComposerStatus'
-    ]),
-    previewGate (gate) {
-      if (!this.collapsed) {
-        // Qapi.previewGate(gate.symbol).then(state => console.log(state))
-      }
-    },
-    pushGate (gate) {
-      if (!this.collapsed) {
-        // this.appliedGates.push(gate.symbol)
-        // Qapi.pushGate(gate.symbol).then(state => console.log(state))
-      }
-    },
-    popGate () {
-      if (!this.collapsed) {
-        // this.appliedGates.splice(this.appliedGates.length - 1, 1)
-        // Qapi.popGate().then(state => console.log(state))
-      }
-    },
-    measure (batchSize = 1) {
-      // Qapi.measure(batchSize).then(measurement => {
-      //   console.log(measurement)
-      //   this.measurement = measurement
-      //   this.collapsed = true
-      // })
-    },
-    unmeasure () {
-      // this.measurement = {
-      //   batchSize: 0,
-      //   result: [0, 0]
-      // }
-      // this.collapsed = false
-
-      // return Qapi.unmeasure()
-    },
-    remeasure () {
-      // const batchSize = this.measurement.batchSize
-
-      // this.unmeasure().then(() => this.measure(batchSize))
-    },
-    reset () {
-      // this.appliedGates = []
-      // this.collapsed = false
-      // this.measurement = {
-      //   batchSize: 0,
-      //   result: [0, 0]
-      // }
-
-      // Qapi.reset().then(state => console.log(state))
-    }
+      'getComposerStatus',
+      'previewGate',
+      'pushGate',
+      'popGate',
+      'measure',
+      'unmeasure'
+    ])
   },
   mounted () {
     this.getComposerStatus()
