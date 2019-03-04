@@ -21,6 +21,10 @@ const mutations = {
       scenes: scenes,
       total: scenes.length
     }
+    state.stage = {
+      id: 0,
+      storyMode: true
+    }
   },
   applySetting (state, setting) {
     Object.keys(setting).forEach(key => Object.assign(state[key], setting[key]))
@@ -31,12 +35,19 @@ const mutations = {
 }
 
 const actions = {
-  loadAllScenes ({ commit, state }) {
+  loadAllScenes ({ state, commit }) {
     commit('initScenes')
     commit('applySetting', state.story.scenes[0])
-    commit('applySetting', state.story.scenes[1])
   },
-  fireEvent ({ commit, state }, payload) {
+  loadNextScene ({ state, commit }) {
+    const nextSceneId = state.stage.id + 1
+
+    let nextScene = state.story.scenes[nextSceneId]
+    nextScene.stage.id = nextSceneId
+
+    commit('applySetting', nextScene)
+  },
+  fireEvent ({ state, commit, dispatch }, payload) {
     console.log(payload)
 
     const { trigger, parameter, result, errorRate } = state.stage.passConditions[0]
@@ -52,7 +63,7 @@ const actions = {
         if (state.stage.id === state.story.total - 1) {
           console.log('story mode completed')
         } else {
-          commit('applySetting', state.story.scenes[state.stage.id + 1])
+          dispatch('loadNextScene')
         }
       }
     }

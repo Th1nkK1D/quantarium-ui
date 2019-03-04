@@ -3,28 +3,32 @@
     <div class="content">
       <p v-for="t in narratorState.text" :key="t">{{ t }}</p>
     </div>
-    <div class="next-btn" @click="onClickNext()">
+    <div v-if="stage.passConditions[0] && stage.passConditions[0].trigger === 'narrator-text-read'" class="next-btn" @click="onClickNext()">
       >
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'NarrativeDisplay',
   props: [
     'narratorState'
   ],
+  computed: {
+    ...mapState([
+      'stage'
+    ])
+  },
   methods: {
     ...mapActions([
       'fireEvent'
     ]),
     onClickNext () {
       this.fireEvent({
-        trigger: 'narrator',
-        parameter: 'text-read'
+        trigger: 'narrator-text-read'
       })
     }
   }

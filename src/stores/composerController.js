@@ -5,7 +5,7 @@ const state = {
   composer: {
     isDisplay: false,
     availableGates: gates.map(gate => gate.symbol),
-    allowMeasure: false,
+    allowMeasure: true,
     appliedGates: [],
     collapsed: false,
     measurement: {
@@ -28,8 +28,15 @@ const mutations = {
 }
 
 const actions = {
-  initComposer ({ commit }) {
-    commit('updateComposerStates', state)
+  async resetComposer ({ state, commit }) {
+    const newState = await Qapi.reset(state.global.apiServer)
+    console.log(newState)
+
+    commit('updateComposerStates', {
+      appliedGates: newState.gates,
+      collapsed: newState.collapsed !== false,
+      measurement: newState.measurement
+    })
   },
   async getComposerStatus ({ state, commit }) {
     const newState = await Qapi.getStatus(state.global.apiServer)
@@ -68,7 +75,7 @@ const actions = {
       console.log(newState)
     }
   },
-  async measure ({ state, commit }, batchSize = 1) {
+  async measure ({ state, commit, dispatch }, batchSize = 1) {
     if (!state.composer.collapsed) {
       const measurement = await Qapi.measure(state.global.apiServer, batchSize)
       console.log(measurement)
@@ -76,6 +83,12 @@ const actions = {
       commit('updateComposerStates', {
         collapsed: true,
         measurement: measurement
+      })
+
+      dispatch('fireEvent', {
+        trigger: 'composer-measure',
+        parameter: measurement.batchSize,
+        result: measurement.result
       })
     }
   },

@@ -1,18 +1,8 @@
 [
   {
     "stage": {
-      "id": 0,
-      "storyMode": true
-    },
-    "composer": {
-      "isDisplay": false
-    }
-  },
-  {
-    "stage": {
-      "id": 1,
       "passConditions": [
-        { "trigger": "narrator", "parameter": "text-read" }
+        { "trigger": "narrator-text-read" }
       ]
     },
     "narrator": {
@@ -21,13 +11,16 @@
         "But there are still many complex problem that can’t be solved by classical computer, even we try to add more computing power.",
         "A new way of computing is needed."
       ]
+    },
+    "composer": {
+      "isDisplay": false,
+      "allowMeasure": false
     }
   },
   {
     "stage": {
-      "id": 2,
       "passConditions": [
-        { "trigger": "narrator", "parameter": "text-read" }
+        { "trigger": "narrator-text-read" }
       ]
     },
     "narrator": {
@@ -39,9 +32,8 @@
   },
   {
     "stage": {
-      "id": 3,
       "passConditions": [
-        { "trigger": "narrator", "parameter": "text-read" }
+        { "trigger": "narrator-text-read" }
       ]
     },
     "narrator": {
@@ -53,9 +45,8 @@
   },
   {
     "stage": {
-      "id": 4,
       "passConditions": [
-        { "trigger": "narrator", "parameter": "text-read" }
+        { "trigger": "narrator-text-read" }
       ]
     },
     "narrator": {
@@ -67,9 +58,8 @@
   },
   {
     "stage": {
-      "id": 5,
       "passConditions": [
-        { "trigger": "narrator", "parameter": "text-read" }
+        { "trigger": "narrator-text-read" }
       ]
     },
     "narrator": {
@@ -81,7 +71,6 @@
   },
   {
     "stage": {
-      "id": 6,
       "passConditions": [
         { "trigger": "composer-gate-push", "parameter": "h" }
       ]
@@ -99,15 +88,112 @@
   },
   {
     "stage": {
-      "id": 7,
       "passConditions": [
-        { "trigger": "narrator", "parameter": "text-read" }
+        { "trigger": "narrator-text-read" }
       ]
     },
     "narrator": {
       "text": [
         "Look at the qubit, now it is neither 0 or 1 but in between.",
         "We called this state as a “Superposition”"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "You can click on any gate to see the description and preview an effect on the qubit.",
+        "Let’s add appropriate gates to move qubit state toward blinking point!"
+      ]
+    },
+    "composer": {
+      "availableGates": ["h", "x", "y", "z"]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "Now you know how to change qubit state but in order to get qubit value,",
+        "a measurement operation needed to be applied."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "Measurement is an indeterministic operation",
+        "which make superposition state collapse to either 0 or 1 with some probability value."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "composer-measure" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "We will do measurement for 100 times on the same qubit state to see the probability of getting 0 and 1."
+      ]
+    },
+    "composer": {
+      "allowMeasure": true
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "As you can see, the chance of getting 1 and 0 is related to the distance from qubit state before a measurement."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "With qubit, researcher can develop quantum algorithms to solve some particular problems",
+        "in more efficient way when comparing to classical method."
+      ]
+    },
+    "composer": {
+      "isDisplay": false
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "Quantum computer hardware is still under development, but it can not replace classical computer.",
+        "It was built to tackle different kind of problems which might take human kind to a new discovery."
       ]
     }
   }

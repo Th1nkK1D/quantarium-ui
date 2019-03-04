@@ -16,7 +16,7 @@
         <MeasurementResult v-else :measurement="composer.measurement" />
       </div><!-- end of gate tray -->
       <!-- options -->
-      <div class="fx-col fx-x1 options">
+      <div v-if="composer.allowMeasure" class="fx-col fx-x1 options">
         <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
         <button v-else @click="unmeasure()">Undo measurement</button>
       </div><!-- end of options -->
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      'initComposer',
+      'resetComposer',
       'getComposerStatus',
       'previewGate',
       'pushGate',
@@ -55,8 +55,7 @@ export default {
     ])
   },
   mounted () {
-    this.initComposer()
-    this.getComposerStatus()
+    this.resetComposer()
   }
 }
 </script>
