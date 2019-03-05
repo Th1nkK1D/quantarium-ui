@@ -66,7 +66,8 @@ const actions = {
 
       dispatch('fireEvent', {
         trigger: 'composer-gate-push',
-        parameter: gate.symbol
+        parameter: gate.symbol,
+        result: newState.states[newState.states.length - 1]
       })
     }
   },

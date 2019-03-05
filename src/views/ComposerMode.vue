@@ -17,7 +17,7 @@ export default {
       'resetComposer'
     ])
   },
-  mounted() {
+  mounted () {
     this.resetComposer()
   }
 }
