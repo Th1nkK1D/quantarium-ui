@@ -27,11 +27,11 @@ import gates from '@/assets/gates.json'
 
 export default {
   name: 'GateTray',
-  props: [
-    'onFocusGate',
-    'onSelectGate',
-    'availableGates'
-  ],
+  props: {
+    onFocusGate: Function,
+    onSelectGate: Function,
+    availableGates: Array
+  },
   components: {
     GateIcon
   },

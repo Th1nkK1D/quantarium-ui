@@ -14,9 +14,9 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'NarrativeDisplay',
-  props: [
-    'narratorState'
-  ],
+  props: {
+    narratorState: Object
+  },
   computed: {
     ...mapState([
       'stage'

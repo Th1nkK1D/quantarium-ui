@@ -10,7 +10,10 @@ import GateIcon from '../components/GateIcon'
 
 export default {
   name: 'GateStage',
-  props: ['appliedGates', 'onRemoveGate'],
+  props: {
+    appliedGates: Array,
+    onRemoveGate: Function
+  },
   components: {
     GateIcon
   }

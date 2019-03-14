@@ -15,7 +15,9 @@
 <script>
 export default {
   name: 'MeasurementResult',
-  props: ['measurement']
+  props: {
+    measurement: Object
+  }
 }
 </script>
 

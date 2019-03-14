@@ -99,17 +99,12 @@ const actions = {
   async unmeasure ({ state, commit }) {
     if (state.composer.collapsed) {
       commit('updateComposerStates', {
-        collapsed: true,
+        collapsed: false,
         measurement: {
           batchSize: 0,
           result: [0, 0]
         }
       })
-
-      this.measurement = {
-        batchSize: 0,
-        result: [0, 0]
-      }
 
       const newState = await Qapi.unmeasure(state.global.apiServer)
       console.log(newState)

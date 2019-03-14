@@ -7,7 +7,13 @@
 <script>
 export default {
   name: 'GateIcon',
-  props: ['symbol', 'onClickGate']
+  props: {
+    symbol: String,
+    onClickGate: {
+      type: Function,
+      default: () => {}
+    }
+  }
 }
 </script>
 

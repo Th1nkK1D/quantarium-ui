@@ -16,9 +16,12 @@
         <MeasurementResult v-else :measurement="composer.measurement" />
       </div><!-- end of gate tray -->
       <!-- options -->
-      <div v-if="composer.allowMeasure" class="fx-col fx-x1 options">
-        <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
-        <button v-else @click="unmeasure()">Undo measurement</button>
+      <div class="fx-col fx-x1 options">
+        <div v-if="composer.allowMeasure" class="fx-col">
+          <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
+          <button v-else @click="unmeasure()">Undo measurement</button>
+        </div>
+        <button @click="resetComposer()">Reset</button>
       </div><!-- end of options -->
     </div><!-- end of controller row -->
   </div>
@@ -49,7 +52,8 @@ export default {
       'pushGate',
       'popGate',
       'measure',
-      'unmeasure'
+      'unmeasure',
+      'resetComposer'
     ])
   }
 }
