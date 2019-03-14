@@ -102,7 +102,7 @@
   {
     "stage": {
       "passConditions": [
-        { "trigger": "composer-gate-push", "result": ["-0.7071067811865475i", "0.7071067811865475i"] }
+        { "trigger": "composer-gate-push", "result": ["0.7071067811865475", "-0.7071067811865475"] }
       ]
     },
     "narrator": {

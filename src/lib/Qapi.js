@@ -21,7 +21,8 @@ const Qapi = {
   pushGate: (url, gateSymbol) => requestHandler(url, 'put', '/gate/' + gateSymbol),
   popGate: url => requestHandler(url, 'delete', '/gate'),
   measure: (url, batchSize) => requestHandler(url, 'post', '/measure/' + batchSize),
-  unmeasure: url => requestHandler(url, 'post', '/unmeasure')
+  unmeasure: url => requestHandler(url, 'post', '/unmeasure'),
+  compare: (url, q1, q2) => requestHandler(url, 'get', '/compare/' + q1.join(',') + '/' + q2.join(','))
 }
 
 export default Qapi

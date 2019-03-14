@@ -1,23 +1,5 @@
+import Qapi from '@/lib/Qapi'
 import scenes from '@/assets/scenes.json'
-import { complex } from 'mathjs'
-
-function checkQubitState (a, b) {
-  // console.log(a)
-  // console.log(b)
-  if (a.length !== b.length) {
-    return false
-  }
-
-  for (let i = 0; i < a.length; i++) {
-    // console.log(complex(a[i]))
-    // console.log(complex(b[i]))
-    if (!complex(a[i]).equals(complex(b[i]))) {
-      return false
-    }
-  }
-
-  return true
-}
 
 const state = {
   story: {
@@ -66,16 +48,21 @@ const actions = {
 
     commit('applySetting', nextScene)
   },
-  fireEvent ({ state, commit, dispatch }, payload) {
+  async fireEvent ({ state, commit, dispatch }, payload) {
     console.log(payload)
 
     if (state.stage.storyMode) {
       const { trigger, parameter, result } = state.stage.passConditions[0]
+      let compareRes
+
+      if (result) {
+        compareRes = await Qapi.compare(state.global.apiServer, result, payload.result)
+      }
 
       if (
         (!trigger || trigger === payload.trigger) &&
         (!parameter || parameter === payload.parameter) &&
-        (!result || checkQubitState(result, payload.result))
+        (!result || compareRes.result)
       ) {
         commit('popPassCondition')
 
