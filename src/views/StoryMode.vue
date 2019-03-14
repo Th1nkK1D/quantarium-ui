@@ -1,6 +1,6 @@
 <template>
   <div class="story-mode">
-    <div class="composer-wrapper" v-if="composer.isDisplay">
+    <div class="composer-wrapper" v-if="composerIsDisplay">
       <div v-if="narrativePending" class="blocker">
       </div>
       <QubitComposer />
@@ -25,11 +25,11 @@ export default {
   },
   computed: {
     ...mapState([
-      'narrator',
-      'composer'
+      'narrator'
     ]),
     ...mapGetters([
-      'narrativePending'
+      'narrativePending',
+      'composerIsDisplay'
     ])
   },
   methods: {

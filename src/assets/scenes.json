@@ -72,12 +72,24 @@
   {
     "stage": {
       "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "This is qubit composer where you can apply basic gates to the qubit."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
         { "trigger": "composer-gate-push", "parameter": "h" }
       ]
     },
     "narrator": {
       "text": [
-        "This is qubit composer where you can apply basic gates to the qubit.",
+        
         "Let’s apply Hadamard gate by drag it to the timeline."
       ]
     },
@@ -123,8 +135,8 @@
     },
     "narrator": {
       "text": [
-        "Now you know how to change qubit state but in order to get qubit value,",
-        "a measurement operation needed to be applied."
+        "Now you know how to change qubit state",
+        "But in order to get qubit value, a measurement operation needed to be applied."
       ]
     }
   },
@@ -149,7 +161,7 @@
     },
     "narrator": {
       "text": [
-        "We will do measurement for 100 times on the same qubit state to see the probability of getting 0 and 1."
+        "Let's do measurement for 1000 times on the same qubit state to see the probability of getting 0 and 1."
       ]
     },
     "composer": {

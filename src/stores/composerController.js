@@ -17,6 +17,12 @@ const state = {
   }
 }
 
+const getters = {
+  composerIsDisplay (state) {
+    return state.composer.isDisplay
+  }
+}
+
 const mutations = {
   updateComposerStates (state, newComposerState) {
     Vue.set(state, 'composer', Object.assign({}, state.composer, newComposerState))
@@ -114,4 +120,4 @@ const actions = {
   }
 }
 
-export default { state, mutations, actions }
+export default { state, mutations, actions, getters }

@@ -14,7 +14,8 @@ const state = {
   ...composerController.state
 }
 const getters = {
-  ...stageDirector.getters
+  ...stageDirector.getters,
+  ...composerController.getters
 }
 
 const mutations = {
