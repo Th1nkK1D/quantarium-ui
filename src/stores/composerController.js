@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import Qapi from '../lib/Qapi'
 import gates from '../assets/gates.json'
 
@@ -17,13 +19,13 @@ const state = {
 
 const mutations = {
   updateComposerStates (state, newComposerState) {
-    Object.assign(state.composer, newComposerState)
+    Vue.set(state, 'composer', Object.assign({}, state.composer, newComposerState))
   },
   pushAppliedGate (state, gateSymbol) {
-    state.composer.appliedGates.push(gateSymbol)
+    Vue.set(state.composer, 'appliedGates', state.composer.appliedGates.concat([gateSymbol]))
   },
   popAppliedGate (state) {
-    state.composer.appliedGates.splice(state.composer.appliedGates.length - 1, 1)
+    Vue.delete(state.composer.appliedGates, state.composer.appliedGates.length - 1)
   }
 }
 

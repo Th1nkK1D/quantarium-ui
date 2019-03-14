@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import Qapi from '@/lib/Qapi'
 import scenes from '@/assets/scenes.json'
 
@@ -16,22 +18,30 @@ const state = {
   }
 }
 
+const getters = {
+  narrativePending (state) {
+    return state.stage.passConditions && state.stage.passConditions.length > 0 && state.stage.passConditions[0].trigger === 'narrator-text-read'
+  }
+}
+
 const mutations = {
   initScenes (state) {
-    state.story = {
+    Vue.set(state, 'story', {
       scenes: scenes,
       total: scenes.length
-    }
-    state.stage = {
+    })
+    Vue.set(state, 'stage', {
       id: 0,
       storyMode: true
-    }
+    })
   },
   applySetting (state, setting) {
-    Object.keys(setting).forEach(key => Object.assign(state[key], setting[key]))
+    Object.keys(setting).forEach(key => {
+      Vue.set(state, key, Object.assign({}, state[key], setting[key]))
+    })
   },
   popPassCondition (state) {
-    state.stage.passConditions.splice(0, 1)
+    Vue.delete(state.stage.passConditions, 0)
   }
 }
 
@@ -78,4 +88,4 @@ const actions = {
   }
 }
 
-export default { state, mutations, actions }
+export default { state, getters, mutations, actions }

@@ -13,6 +13,9 @@ const state = {
   ...stageDirector.state,
   ...composerController.state
 }
+const getters = {
+  ...stageDirector.getters
+}
 
 const mutations = {
   ...stageDirector.mutations,
@@ -24,4 +27,4 @@ const actions = {
   ...composerController.actions
 }
 
-export default new Vuex.Store({ state, mutations, actions })
+export default new Vuex.Store({ state, getters, mutations, actions })
