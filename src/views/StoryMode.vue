@@ -1,12 +1,20 @@
 <template>
   <div class="story-mode">
-    <div class="composer-wrapper" v-if="composerIsDisplay">
-      <div v-if="narrativePending" class="blocker">
+    <div v-if="!storyIsDone" class="fx fx-col fx-x1">
+      <div class="composer-wrapper" v-if="composerIsDisplayed">
+        <div v-if="narrativeIsPending" class="blocker">
+        </div>
+        <QubitComposer />
       </div>
-      <QubitComposer />
+      <div class="fx-x1">
+        <NarrativeDisplay :narratorState="narrator" :narrativeIsPending="narrativeIsPending" />
+      </div>
     </div>
-    <div class="fx-x1">
-      <NarrativeDisplay :narratorState="narrator" :narrativePending="narrativePending" />
+    <div v-else class="ending-menu">
+      <div>
+        <h2>Story mode is completed</h2>
+          <router-link to="/">Return to main menu</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -28,8 +36,9 @@ export default {
       'narrator'
     ]),
     ...mapGetters([
-      'narrativePending',
-      'composerIsDisplay'
+      'narrativeIsPending',
+      'composerIsDisplayed',
+      'storyIsDone'
     ])
   },
   methods: {
@@ -63,6 +72,19 @@ export default {
         right: 0;
         background-color: black;
         opacity: 0.3;
+      }
+    }
+
+    .ending-menu {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      background-color: black;
+      color: white;
+
+      div {
+        margin: auto;
+        text-align: center;
       }
     }
   }

@@ -3,7 +3,7 @@
     <div class="content">
       <p v-for="t in narratorState.text" :key="t">{{ t }}</p>
     </div>
-    <div v-if="narrativePending" class="next-btn" @click="onClickNext()">
+    <div v-if="narrativeIsPending" class="next-btn" @click="onClickNext()">
       >
     </div>
   </div>
@@ -16,7 +16,7 @@ export default {
   name: 'NarrativeDisplay',
   props: {
     narratorState: Object,
-    narrativePending: Boolean
+    narrativeIsPending: Boolean
   },
   methods: {
     ...mapActions([

@@ -18,7 +18,7 @@ const state = {
 }
 
 const getters = {
-  composerIsDisplay (state) {
+  composerIsDisplayed (state) {
     return state.composer.isDisplay
   }
 }

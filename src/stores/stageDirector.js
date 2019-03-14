@@ -19,8 +19,11 @@ const state = {
 }
 
 const getters = {
-  narrativePending (state) {
+  narrativeIsPending (state) {
     return state.stage.passConditions && state.stage.passConditions.length > 0 && state.stage.passConditions[0].trigger === 'narrator-text-read'
+  },
+  storyIsDone (state) {
+    return state.stage.id === state.story.total - 1
   }
 }
 
