@@ -72,6 +72,7 @@ export default {
         right: 0;
         background-color: black;
         opacity: 0.3;
+        z-index: 10;
       }
     }
 

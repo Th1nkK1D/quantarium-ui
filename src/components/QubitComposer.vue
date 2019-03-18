@@ -6,7 +6,7 @@
     </div><!-- end of title row -->
     <!-- stage -->
     <div class="fx-row fx-x3" style="padding: 4em 4em 0">
-      <GateStage class="fx-x1" :appliedGates="composer.appliedGates" :onRemoveGate="popGate" :isCollapsed="composer.collapsed"/>
+      <GateStage class="fx-x1" :appliedGates="appliedGates" :onRemoveGate="popGate" :isCollapsed="composer.collapsed"/>
       <div v-if="composer.allowMeasure" class="fx-col options">
         <button v-if="!composer.collapsed" @click="measure(1000)">
           Measure<br>x1000
@@ -18,7 +18,7 @@
     </div><!-- end of stage -->
     <!-- under stage -->
     <div class="fx-row fx-x2 fx-justcent under-stage">
-      <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" :availableGates="composer.availableGates" />
+      <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" :availableGates="availableGates" />
       <MeasurementResult v-else :measurement="composer.measurement" />
     </div><!-- end of under stage -->
   </div>
@@ -41,7 +41,13 @@ export default {
   computed: {
     ...mapState([
       'composer'
-    ])
+    ]),
+    availableGates() {
+      return this.composer.availableGates.map(ag => this.composer.gateList.find(gl => ag === gl.symbol))
+    },
+    appliedGates() {
+      return this.composer.appliedGates.map(ag => this.composer.gateList.find(gl => ag === gl.symbol))
+    }
   },
   methods: {
     ...mapActions([
