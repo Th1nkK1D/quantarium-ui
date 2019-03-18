@@ -5,18 +5,18 @@
       <h3 class="title">Qubit Composer</h3>
     </div><!-- end of title row -->
     <!-- stage -->
-    <div class="fx-row fx-x2" style="padding: 2em">
+    <div class="fx-row fx-x3" style="padding: 2em">
       <GateStage class="fx-x1" :appliedGates="composer.appliedGates" :onRemoveGate="popGate"/>
       <div v-if="composer.allowMeasure" class="fx-col options">
         <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
         <button v-else @click="unmeasure()">Undo measurement</button>
       </div>
     </div><!-- end of stage -->
-    <!-- gate tray -->
-    <div class="fx-col fx-x2">
+    <!-- under stage -->
+    <div class="fx-row fx-x2 fx-justcent under-stage">
       <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" :availableGates="composer.availableGates" />
       <MeasurementResult v-else :measurement="composer.measurement" />
-    </div><!-- end of gate tray -->
+    </div><!-- end of under stage -->
   </div>
 </template>
 

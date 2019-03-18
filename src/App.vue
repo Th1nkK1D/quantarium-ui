@@ -40,4 +40,12 @@ body {
   flex: 2;
 }
 
+.fx-x3 {
+  flex: 3;
+}
+
+.fx-justcent {
+  justify-content: center;
+}
+
 </style>

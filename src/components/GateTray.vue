@@ -1,20 +1,23 @@
 <template>
-  <div class="fx-row">
+  <div class="fx-col gate-tray">
     <!-- gates list -->
-    <div class="fx-col fx-x2">
-      <div class="fx-row">
-        <GateIcon v-for="gate in availableGates" :key="gate.symbol" :symbol="gate.symbol" :colors="gate.colors" :onClickGate="() => onClickGate(gate)" />
-      </div>
+    <div class="fx-row fx-justcent">
+      <GateIcon
+        v-for="gate in availableGates"
+        :key="gate.symbol"
+        :symbol="gate.symbol"
+        :colors="gate.colors"
+        :onClickGate="() => onClickGate(gate)"
+        :class="{ 'active-gate':  focusedGate && gate.symbol === focusedGate.symbol }"
+      />
     </div><!-- end of gates list -->
     <!-- gate detail -->
-    <div class="fx-col fx-x1">
+    <div class="fx-col subtext">
       <div v-if="focusedGate === null">
-        <strong>Here is available gates</strong> <br>
-        - Click to preview the gate <br>
-        - Click it again to apply
+        Available quantum gates
       </div>
       <div v-else>
-        <strong>{{ focusedGate.name }}</strong> <br>
+        <strong>{{ focusedGate.name }}</strong>
         {{ focusedGate.description }}
       </div>
     </div><!-- end of gate detail -->
@@ -54,5 +57,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .gate-tray {
 
+    .gate-icon {
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+
+      &.active-gate {
+        transform: translateY(-1em);
+      }
+    }
+
+    .subtext {
+      padding: 0.5em;
+      text-align: center;
+    }
+  }
 </style>
