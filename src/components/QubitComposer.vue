@@ -2,28 +2,21 @@
   <div class="fx-col qubit-composer">
     <!-- title row -->
     <div class="fx-row">
-      <h3 class="title">Quantarium | Composer</h3>
+      <h3 class="title">Qubit Composer</h3>
     </div><!-- end of title row -->
     <!-- stage -->
-    <div class="fx-row fx-x2">
-      <GateStage :appliedGates="composer.appliedGates" :onRemoveGate="popGate"/>
+    <div class="fx-row fx-x2" style="padding: 2em">
+      <GateStage class="fx-x1" :appliedGates="composer.appliedGates" :onRemoveGate="popGate"/>
+      <div v-if="composer.allowMeasure" class="fx-col options">
+        <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
+        <button v-else @click="unmeasure()">Undo measurement</button>
+      </div>
     </div><!-- end of stage -->
-    <!-- controller row -->
-    <div class="fx-row fx-x1">
-      <!-- gate tray -->
-      <div class="fx-col fx-x2">
-        <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" :availableGates="composer.availableGates" />
-        <MeasurementResult v-else :measurement="composer.measurement" />
-      </div><!-- end of gate tray -->
-      <!-- options -->
-      <div class="fx-col fx-x1 options">
-        <div v-if="composer.allowMeasure" class="fx-col">
-          <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
-          <button v-else @click="unmeasure()">Undo measurement</button>
-        </div>
-        <button @click="resetComposer()">Reset</button>
-      </div><!-- end of options -->
-    </div><!-- end of controller row -->
+    <!-- gate tray -->
+    <div class="fx-col fx-x2">
+      <GateTray v-if="!composer.collapsed" :onFocusGate="previewGate" :onSelectGate="pushGate" :availableGates="composer.availableGates" />
+      <MeasurementResult v-else :measurement="composer.measurement" />
+    </div><!-- end of gate tray -->
   </div>
 </template>
 
@@ -63,7 +56,7 @@ export default {
   .qubit-composer {
     width: 100%;
     height: 100%;
-    background-color: #2E1A57;
+    background-image: linear-gradient(160deg, #160E29, #2E1A57);
     color: white;
     overflow: hidden;
 
@@ -78,7 +71,7 @@ export default {
         color: black;
         border-radius: 3px;
         padding: 7px;
-        margin: 3px;
+        margin: auto 3px;
 
         &.is-dark {
           background-color: black;
