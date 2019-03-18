@@ -1,8 +1,10 @@
 <template>
   <div class="fx-col gate-stage">
     <div class="fx-row stage-fg">
-      <GateIcon v-for="(gateSym, g) in appliedGates" :key="g" :symbol="gateSym" />
-      <span v-if="appliedGates.length > 0" @click="onRemoveGate">X</span>
+      <GateIcon v-for="(gate, g) in appliedGates" :key="g" :symbol="gate.symbol" :colors="gate.colors" />
+      <span class="remove-btn" v-if="appliedGates.length > 0" @click="onRemoveGate">
+        <span>x</span>
+      </span>
     </div>
     <div class="fx-row stage-bg">
       <div class="fx-col zero">0</div>
@@ -45,7 +47,25 @@ export default {
       z-index: 1;
 
       .gate-icon {
-        margin: auto 1em;
+        margin: auto unset;
+      }
+
+      .remove-btn {
+        position: relative;
+
+        span {
+          position: absolute;
+          left: -1.5em;
+          background-color: white;
+          color: black;
+          width: 0.8em;
+          height: 0.8em;
+          padding: 0.3em;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
 

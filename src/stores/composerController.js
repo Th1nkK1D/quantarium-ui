@@ -6,7 +6,7 @@ import gates from '../assets/gates.json'
 const state = {
   composer: {
     isDisplay: true,
-    availableGates: gates.map(gate => gate.symbol),
+    availableGates: gates,
     allowMeasure: true,
     appliedGates: [],
     collapsed: false,
@@ -42,7 +42,7 @@ const actions = {
 
     commit('updateComposerStates', {
       isDisplay: true,
-      availableGates: gates.map(gate => gate.symbol),
+      availableGates: gates,
       allowMeasure: true,
       appliedGates: newState.gates,
       collapsed: newState.collapsed !== false,
@@ -67,7 +67,7 @@ const actions = {
   },
   async pushGate ({ state, commit, dispatch }, gate) {
     if (!state.composer.collapsed) {
-      commit('pushAppliedGate', gate.symbol)
+      commit('pushAppliedGate', gate)
 
       const newState = await Qapi.pushGate(state.global.apiServer, gate.symbol)
       console.log(newState)

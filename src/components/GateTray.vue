@@ -3,7 +3,7 @@
     <!-- gates list -->
     <div class="fx-col fx-x2">
       <div class="fx-row">
-        <GateIcon v-for="gate in gateList" :key="gate.symbol" :symbol="gate.symbol" :onClickGate="() => onClickGate(gate)" />
+        <GateIcon v-for="gate in availableGates" :key="gate.symbol" :symbol="gate.symbol" :colors="gate.colors" :onClickGate="() => onClickGate(gate)" />
       </div>
     </div><!-- end of gates list -->
     <!-- gate detail -->
@@ -23,7 +23,6 @@
 
 <script>
 import GateIcon from './GateIcon'
-import gates from '@/assets/gates.json'
 
 export default {
   name: 'GateTray',
@@ -38,11 +37,6 @@ export default {
   data () {
     return {
       focusedGate: null
-    }
-  },
-  computed: {
-    gateList () {
-      return this.availableGates.map(gateSymbol => gates.find(gate => gate.symbol === gateSymbol))
     }
   },
   methods: {

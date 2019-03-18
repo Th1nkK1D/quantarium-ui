@@ -1,6 +1,6 @@
 [
-   { "symbol": "h", "name": "Hadamard Gate", "description": "Rotate 1/2 sphere about the Z-axis and 1/2 sphere about the Y-axis" },
-   { "symbol": "x", "name": "Pauli-X Gate", "description": "Rotate 1/2 sphere about X-axis" },
-   { "symbol": "y", "name": "Pauli-Y Gate", "description": "Rotate 1/2 sphere about Y-axis" },
-   { "symbol": "z", "name": "Pauli-Z Gate", "description": "Rotate 1/2 sphere about Z-axis" }
+   { "symbol": "h", "name": "Hadamard Gate", "description": "Rotate 1/2 sphere about the Z-axis and 1/2 sphere about the Y-axis", "colors": ["#666FE0", "#24C795"] },
+   { "symbol": "x", "name": "Pauli-X Gate", "description": "Rotate 1/2 sphere about X-axis", "colors": ["#6AD57F", "#EFF465"]  },
+   { "symbol": "y", "name": "Pauli-Y Gate", "description": "Rotate 1/2 sphere about Y-axis", "colors": ["#F7E44E", "#C74A24"]  },
+   { "symbol": "z", "name": "Pauli-Z Gate", "description": "Rotate 1/2 sphere about Z-axis", "colors": ["#ED8863", "#D82FD8"]  }
 ]
