@@ -5,11 +5,15 @@
       <h3 class="title">Qubit Composer</h3>
     </div><!-- end of title row -->
     <!-- stage -->
-    <div class="fx-row fx-x3" style="padding: 2em">
-      <GateStage class="fx-x1" :appliedGates="composer.appliedGates" :onRemoveGate="popGate"/>
+    <div class="fx-row fx-x3" style="padding: 4em 4em 0">
+      <GateStage class="fx-x1" :appliedGates="composer.appliedGates" :onRemoveGate="popGate" :isCollapsed="composer.collapsed"/>
       <div v-if="composer.allowMeasure" class="fx-col options">
-        <button v-if="!composer.collapsed" @click="measure(1000)">Measure 1000 times</button>
-        <button v-else @click="unmeasure()">Undo measurement</button>
+        <button v-if="!composer.collapsed" @click="measure(1000)">
+          Measure<br>x1000
+        </button>
+        <button v-else @click="unmeasure()">
+          Revert
+        </button>
       </div>
     </div><!-- end of stage -->
     <!-- under stage -->
@@ -66,18 +70,18 @@ export default {
     }
 
     .options {
-      button {
-        background-color: white;
-        color: black;
-        border-radius: 3px;
-        padding: 7px;
-        margin: auto 3px;
+      margin-left: 1em;
 
-        &.is-dark {
-          background-color: black;
-          color: white;
-          border: 1px solid white;
-        }
+      button {
+        width: 7em;
+        height: 7em;
+        background: none;
+        color: #F3C4FF;
+        border: 2px solid #F3C4FF;
+        border-radius: 50%;
+        margin: auto 0;
+        font-weight: bold;
+        text-align: center;
       }
     }
   }

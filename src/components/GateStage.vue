@@ -2,7 +2,7 @@
   <div class="fx-col gate-stage">
     <div class="fx-row stage-fg">
       <GateIcon v-for="(gate, g) in appliedGates" :key="g" :symbol="gate.symbol" :colors="gate.colors" />
-      <span class="remove-btn" v-if="appliedGates.length > 0" @click="onRemoveGate">
+      <span class="remove-btn" v-if="!isCollapsed && appliedGates.length > 0" @click="onRemoveGate">
         <span>x</span>
       </span>
     </div>
@@ -23,7 +23,8 @@ export default {
   name: 'GateStage',
   props: {
     appliedGates: Array,
-    onRemoveGate: Function
+    onRemoveGate: Function,
+    isCollapsed: Boolean
   },
   components: {
     GateIcon
