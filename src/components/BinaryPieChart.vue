@@ -28,7 +28,7 @@ export default {
     },
     segmentValue () {
       if (this.values) {
-        return Math.min(this.values[0], this.values[1]) * 180 / 100
+        return Math.min(this.values[0], this.values[1]) * 360 / (this.values[0] + this.values[1])
       } else {
         return 0
       }

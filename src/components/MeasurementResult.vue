@@ -1,17 +1,23 @@
 <template>
   <div class="fx-col measurement-result">
-    <div>
-      <strong>Measurement result</strong>
+    <div class="text-center">
+      <strong>Measurement Result</strong>
     </div>
     <div class="fx-row">
-      <div class="fx">0: {{ measurement.result[0] }}</div>
-      <div>
+      <div class="fx-col fx-justcent text-center">
+        <div class="label" style="color: #3B71EB;">0</div>
+        <div>{{ measurement.result[0] }} times</div>
+      </div>
+      <div class="pie-chart">
         <BinaryPieChart :values="measurement.result" :colors="['#3B71EB', '#EB3B93']" />
       </div>
-      <div class="fx">1: {{ measurement.result[1] }}</div>
+      <div class="fx-col fx-justcent text-center">
+        <div class="label" style="color: #EB3B93;">1</div>
+        <div>{{ measurement.result[1] }} times</div>
+      </div>
     </div>
-      <div>
-      Number of measurement: {{ measurement.batchSize }}
+    <div class="text-center subtitle">
+      From total {{ measurement.batchSize }} times
     </div>
   </div>
 </template>
@@ -31,5 +37,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.measurement-result {
+  .text-center {
+    text-align: center;
+  }
 
+  .pie-chart {
+    padding: 2em;
+  }
+
+  .label {
+    font-size: 2em;
+  }
+
+  .subtitle {
+    font-size: 0.8em;
+  }
+}
 </style>

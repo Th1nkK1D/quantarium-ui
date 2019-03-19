@@ -58,6 +58,7 @@ export default {
 
 <style lang="scss" scoped>
   .gate-tray {
+    margin: 2em;
 
     .gate-icon {
       transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);

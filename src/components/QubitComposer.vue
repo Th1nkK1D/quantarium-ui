@@ -4,8 +4,9 @@
     <div class="fx-row">
       <h3 class="title">Qubit Composer</h3>
     </div><!-- end of title row -->
+    <div class="fx-x1"></div>
     <!-- stage -->
-    <div class="fx-row fx-x3" style="padding: 4em 4em 0">
+    <div class="fx-row fx-x1" style="padding: 0 4em">
       <GateStage class="fx-x1" :appliedGates="appliedGates" :onRemoveGate="popGate" :isCollapsed="composer.collapsed"/>
       <div v-if="composer.allowMeasure" class="fx-col options">
         <button v-if="!composer.collapsed" @click="measure(1000)">
@@ -88,6 +89,10 @@ export default {
         margin: auto 0;
         font-weight: bold;
         text-align: center;
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }
