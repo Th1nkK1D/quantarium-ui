@@ -42,10 +42,10 @@ export default {
     ...mapState([
       'composer'
     ]),
-    availableGates() {
+    availableGates () {
       return this.composer.availableGates.map(ag => this.composer.gateList.find(gl => ag === gl.symbol))
     },
-    appliedGates() {
+    appliedGates () {
       return this.composer.appliedGates.map(ag => this.composer.gateList.find(gl => ag === gl.symbol))
     }
   },
