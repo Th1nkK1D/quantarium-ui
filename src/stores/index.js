@@ -4,12 +4,14 @@ import Vuex from 'vuex'
 import stageDirector from './stageDirector'
 import composerController from './composerController'
 
-import baseConfig from '@/assets/baseConfig.json'
-
 Vue.use(Vuex)
 
+console.log(window.location.hostname)
+
 const state = {
-  ...baseConfig,
+  global: {
+    apiServer: `http://${window.location.hostname}:3000/api`
+  },
   ...stageDirector.state,
   ...composerController.state
 }

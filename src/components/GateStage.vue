@@ -1,10 +1,14 @@
 <template>
   <div class="fx-col gate-stage">
     <div class="fx-row stage-fg">
-      <GateIcon v-for="(gate, g) in appliedGates" :key="g" :symbol="gate.symbol" :colors="gate.colors" />
-      <span class="remove-btn" v-if="!isCollapsed && appliedGates.length > 0" @click="onRemoveGate">
-        <span>x</span>
-      </span>
+      <GateIcon
+        v-for="(gate, g) in appliedGates"
+        :key="g"
+        :symbol="gate.symbol"
+        :colors="gate.colors"
+        :removable="!isCollapsed && g === appliedGates.length - 1"
+        :onRemove="onRemoveGate"
+      />
     </div>
     <div class="fx-row stage-bg">
       <div class="fx-col zero">0</div>
@@ -43,12 +47,13 @@ export default {
     .stage-fg {
       position: absolute;
       margin: auto 2em;
-      right: 0;
-      left: 0;
+      top: 0;
+      bottom: 0;
       z-index: 1;
 
       .gate-icon {
-        margin: auto unset;
+        margin-top: auto;
+        margin-bottom: auto;
       }
 
       .remove-btn {
