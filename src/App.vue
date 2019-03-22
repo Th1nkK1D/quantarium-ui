@@ -6,10 +6,21 @@
 
 <style lang="scss">
 
-body {
+html, body {
   padding: 0;
   margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: fixed;
 }
+
+body {
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
 #app {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;

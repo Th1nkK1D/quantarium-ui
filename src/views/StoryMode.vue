@@ -1,12 +1,12 @@
 <template>
-  <div class="story-mode">
-    <div v-if="!storyIsDone" class="fx fx-col fx-x1">
+  <div class="fx fx-col story-mode">
+    <div v-if="!storyIsDone" class="fx fx-col stage">
       <div class="composer-wrapper" v-if="composerIsDisplayed">
         <div v-if="narrativeIsPending" class="blocker">
         </div>
         <QubitComposer />
       </div>
-      <div class="fx-x1">
+      <div class="fx fx-row fx-x1" :style="`height: ${!composerIsDisplayed ? '100%' : '15%' }`">
         <NarrativeDisplay :narratorState="narrator" :narrativeIsPending="narrativeIsPending" />
       </div>
     </div>
@@ -56,12 +56,14 @@ export default {
 
 <style lang="scss" scoped>
   .story-mode {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+
+    .stage {
+      height: 100%;
+    }
 
     .composer-wrapper {
-      height: 85vh;
+      height: 85%;
       position: relative;
 
       .blocker {

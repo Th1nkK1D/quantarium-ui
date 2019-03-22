@@ -6,6 +6,11 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
+// Disable ios safari bouncing
+document.ontouchmove = function (event) {
+  event.preventDefault()
+}
+
 new Vue({
   router,
   store,
