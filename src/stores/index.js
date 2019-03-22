@@ -6,8 +6,6 @@ import composerController from './composerController'
 
 Vue.use(Vuex)
 
-console.log(window.location.hostname)
-
 const state = {
   global: {
     apiServer: `http://${window.location.hostname}:3000/api`

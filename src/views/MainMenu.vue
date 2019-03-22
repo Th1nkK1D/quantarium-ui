@@ -6,7 +6,7 @@
     <div class="fx fx-x1 fx-col fx-justcent">
       <h1>Quantarium</h1>
 
-      <router-link to="story">Story Mode</router-link>
+      <router-link to="" style="opacity: 0.5">Story Mode</router-link>
       <router-link to="composer">Composer Mode</router-link>
 
       <span>&copy; Quantarium Team {{ new Date().getFullYear() }} - All right reserved</span>
@@ -37,7 +37,7 @@ export default {
     h1 {
       margin-top: 0;
       font-size: 4em;
-      font-weight: 400;
+      font-weight: normal;
     }
 
     a {
