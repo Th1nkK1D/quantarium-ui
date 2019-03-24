@@ -1,5 +1,6 @@
 <template>
   <div class="fx-col qubit-composer">
+    <div class="nav-icon" style="right: 0;" @click="resetComposer">&#8634;</div>
     <!-- title row -->
     <div class="fx-row">
       <h3 class="title">Qubit Composer</h3>

@@ -14,11 +14,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'resetComposer'
+      'getComposerStatus'
     ])
   },
   mounted () {
-    this.resetComposer()
+    this.getComposerStatus()
   }
 }
 </script>

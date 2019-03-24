@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
+    <router-link v-if="$route.path !== '/'" class="nav-icon" to="/">Q</router-link>
   </div>
 </template>
 
@@ -27,6 +28,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   width: 100vw;
+
+  .nav-icon {
+    position: fixed;
+    top: 0;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
 }
 
 .fx {

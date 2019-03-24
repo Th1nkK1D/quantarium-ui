@@ -55,7 +55,7 @@ const actions = {
     console.log(newState)
 
     commit('updateComposerStates', {
-      appliedGates: newState.gates,
+      appliedGates: newState.gates.map(g => g.toLowerCase()),
       collapsed: newState.collapsed !== false,
       measurement: newState.measurement
     })
