@@ -8,8 +8,9 @@ const state = {
     isDisplay: true,
     gateList: gates,
     availableGates: gates.map(g => g.symbol),
-    allowMeasure: true,
+    focusedGate: undefined,
     appliedGates: [],
+    allowMeasure: true,
     collapsed: false,
     measurement: {
       batchSize: 0,
@@ -21,6 +22,9 @@ const state = {
 const getters = {
   composerIsDisplayed (state) {
     return state.composer.isDisplay
+  },
+  focusedGate (state) {
+    return state.composer.focusedGate
   }
 }
 
@@ -37,7 +41,7 @@ const mutations = {
 }
 
 const actions = {
-  async resetComposer ({ state, commit }) {
+  async resetComposer ({ state, commit, dispatch }) {
     const newState = await Qapi.reset(state.global.apiServer)
     console.log(newState)
 
@@ -49,6 +53,8 @@ const actions = {
       collapsed: newState.collapsed !== false,
       measurement: newState.measurement
     })
+
+    dispatch('unfocusGate')
   },
   async getComposerStatus ({ state, commit }) {
     const newState = await Qapi.getStatus(state.global.apiServer)
@@ -118,6 +124,16 @@ const actions = {
       const newState = await Qapi.unmeasure(state.global.apiServer)
       console.log(newState)
     }
+  },
+  focusGate ({ commit }, gate) {
+    commit('updateComposerStates', {
+      focusedGate: gate
+    })
+  },
+  unfocusGate ({ commit }) {
+    commit('updateComposerStates', {
+      focusedGate: undefined
+    })
   }
 }
 

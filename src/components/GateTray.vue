@@ -13,7 +13,7 @@
     </div><!-- end of gates list -->
     <!-- gate detail -->
     <div class="fx-col subtext">
-      <div v-if="focusedGate === null">
+      <div v-if="focusedGate === undefined">
         Available quantum gates
       </div>
       <div v-else>
@@ -26,6 +26,7 @@
 
 <script>
 import GateIcon from './GateIcon'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'GateTray',
@@ -37,18 +38,22 @@ export default {
   components: {
     GateIcon
   },
-  data () {
-    return {
-      focusedGate: null
-    }
+  computed: {
+    ...mapGetters([
+      'focusedGate'
+    ])
   },
   methods: {
+    ...mapActions([
+      'focusGate',
+      'unfocusGate'
+    ]),
     onClickGate (gate) {
       if (gate !== this.focusedGate) {
-        this.focusedGate = gate
+        this.focusGate(gate)
         this.onFocusGate(gate)
       } else {
-        this.focusedGate = null
+        this.unfocusGate()
         this.onSelectGate(gate)
       }
     }
