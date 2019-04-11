@@ -112,6 +112,9 @@
     }
   },
   {
+    "dispatch": [
+      { "action": "addChallengeMarker", "payload": ["0.7071067811865475", "-0.7071067811865475"]}
+    ],
     "stage": {
       "passConditions": [
         { "trigger": "composer-gate-push", "result": ["0.7071067811865475", "-0.7071067811865475"] }

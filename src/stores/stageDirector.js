@@ -1,6 +1,5 @@
 import Vue from 'vue'
 
-import Qapi from '@/lib/Qapi'
 import scenes from '@/assets/scenes.json'
 
 const state = {
@@ -49,33 +48,44 @@ const mutations = {
 }
 
 const actions = {
-  loadAllScenes ({ state, commit }) {
-    commit('initScenes')
-    commit('applySetting', state.story.scenes[0])
+  preApplySetting ({ state, commit, dispatch }, setting) {
+    if (setting.dispatch) {
+      setting.dispatch.forEach(dp => dispatch(dp.action, dp.payload))
+      delete setting.dispatch
+    }
+
+    commit('applySetting', setting)
   },
-  loadNextScene ({ state, commit }) {
+  loadAllScenes ({ state, commit, dispatch }) {
+    commit('initScenes')
+    dispatch('preApplySetting', state.story.scenes[0])
+  },
+  loadNextScene ({ state, dispatch }) {
     const nextSceneId = state.stage.id + 1
 
     let nextScene = state.story.scenes[nextSceneId]
     nextScene.stage.id = nextSceneId
 
-    commit('applySetting', nextScene)
+    dispatch('preApplySetting', nextScene)
   },
   async fireEvent ({ state, commit, dispatch }, payload) {
     console.log(payload)
 
     if (state.stage.storyMode) {
       const { trigger, parameter, result } = state.stage.passConditions[0]
-      let compareRes
+      let challengeResult
 
       if (result) {
-        compareRes = await Qapi.compare(state.global.apiServer, result, payload.result)
+        challengeResult = await dispatch('checkChallenge', {
+          q1: result,
+          q2: payload.result
+        })
       }
 
       if (
         (!trigger || trigger === payload.trigger) &&
         (!parameter || parameter === payload.parameter) &&
-        (!result || compareRes.result)
+        (!result || challengeResult)
       ) {
         commit('popPassCondition')
 

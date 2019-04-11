@@ -134,6 +134,20 @@ const actions = {
     commit('updateComposerStates', {
       focusedGate: undefined
     })
+  },
+  addChallengeMarker ({ state }, q) {
+    Qapi.mark(state.global.apiServer, q)
+  },
+  checkChallenge ({ state }, { q1, q2 }) {
+    return new Promise(async (resolve, reject) => {
+      const compareRes = await Qapi.compare(state.global.apiServer, q1, q2)
+
+      if (compareRes.result) {
+        Qapi.unmark(state.global.apiServer)
+      }
+
+      resolve(compareRes.result)
+    })
   }
 }
 

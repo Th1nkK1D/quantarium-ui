@@ -22,7 +22,9 @@ const Qapi = {
   popGate: url => requestHandler(url, 'delete', '/gate'),
   measure: (url, batchSize) => requestHandler(url, 'post', '/measure/' + batchSize),
   unmeasure: url => requestHandler(url, 'post', '/unmeasure'),
-  compare: (url, q1, q2) => requestHandler(url, 'get', '/compare/' + q1.join(',') + '/' + q2.join(','))
+  compare: (url, q1, q2) => requestHandler(url, 'get', '/compare/' + q1.join(',') + '/' + q2.join(',')),
+  mark: (url, q) => requestHandler(url, 'put', '/marker/' + q.join(',')),
+  unmark: url => requestHandler(url, 'delete', '/marker')
 }
 
 export default Qapi
