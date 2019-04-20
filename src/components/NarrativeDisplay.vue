@@ -1,11 +1,13 @@
 <template>
-  <div class="narrative-display">
-    <div class="content">
+  <div class="fx-row narrative-display">
+    <div class="fx-x2 content">
       <p v-for="t in narratorState.text" :key="t">{{ t }}</p>
+      <div v-if="narrativeIsPending" class="next-btn" @click="onClickNext()"> next > </div>
+      <div class="fx holder">
+        <div class="triangle"></div>
+      </div>
     </div>
-    <div v-if="narrativeIsPending" class="next-btn" @click="onClickNext()">
-      >
-    </div>
+    <div class="fx-x1"></div>
   </div>
 </template>
 
@@ -33,31 +35,47 @@ export default {
 
 <style lang="scss" scoped>
   .narrative-display {
-    background-color: black;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    position: relative;
+    padding: 0 1rem;
 
     .content {
+      position: relative;
       color: white;
-      max-width: calc(100% - 4em);
-      margin: auto;
-      text-align: center;
+      background-color: white;
+      color: black;
+      border-radius: 0.4rem;
+      padding: 0.5rem 1rem;
+      margin: auto 2rem;
 
       p {
         font-size: 1.2em;
-        margin: .2em 0;
+        margin: .5em 0;
       }
-    }
 
-    .next-btn {
-      color: white;
-      position: absolute;
-      bottom: 1em;
-      right: 1em;
-      padding: .5em;
+      .next-btn {
+        text-align: right;
+        padding: .5em;
+        padding-top: 0;
+        opacity: 0.4;
+      }
+      .holder {
+        position: absolute;
+        right: -1rem;
+        top: 0;
+        bottom: 0;
+
+        .triangle {
+          margin: auto 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 1rem 0 1rem 1rem;
+          border-color: transparent transparent transparent white;
+        }
+      }
+      
     }
   }
 </style>

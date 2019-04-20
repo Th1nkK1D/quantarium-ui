@@ -6,9 +6,10 @@
         </div>
         <QubitComposer />
       </div>
-      <div class="fx fx-row fx-x1" :style="`height: ${!composerIsDisplayed ? '100%' : '15%' }`">
+      <div class="fx fx-row" :style="`height: ${!composerIsDisplayed ? '100%' : '20%' }`">
         <NarrativeDisplay :narratorState="narrator" :narrativeIsPending="narrativeIsPending" />
       </div>
+      <img src="/svg/qitty.svg" class="qitty" :style="{ bottom: composerIsDisplayed ? '-12vh' : '25vh' }" />
     </div>
     <div v-else class="ending-menu">
       <div>
@@ -57,13 +58,14 @@ export default {
 <style lang="scss" scoped>
   .story-mode {
     height: 100%;
+    background-color: black;
 
     .stage {
       height: 100%;
     }
 
     .composer-wrapper {
-      height: 85%;
+      height: 80%;
       position: relative;
 
       .blocker {
@@ -76,6 +78,14 @@ export default {
         opacity: 0.3;
         z-index: 10;
       }
+    }
+
+    .qitty {
+      position: fixed;
+      right: 3rem;
+      width: 25vw;
+      height: auto;
+      z-index: 15;
     }
 
     .ending-menu {
