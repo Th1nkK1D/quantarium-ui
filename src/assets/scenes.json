@@ -7,9 +7,8 @@
     },
     "narrator": {
       "text": [
-        "We can’t deny that computer is very important to human life nowaday.",
-        "But there are still many complex problem that can’t be solved by classical computer, even we try to add more computing power.",
-        "A new way of computing is needed."
+        "Hi there!",
+        "I'm Qitty, the Schrodinger's cat"
       ]
     },
     "composer": {
@@ -25,8 +24,46 @@
     },
     "narrator": {
       "text": [
-        "So quantum computing was invented using modern physics theory like quantum physics,",
-        "and it change the way that computer work completely."
+        "Quantum world might sound scary to you",
+        "But don't worry because I'm here to help!"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "I think you know how important of computer is nowaday."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "But there are still many complex problem that can’t be solved by these computer.",
+        "A new way of computing is needed."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "So quantum computing was invented using modern physics theory like quantum physics",
+        "And it change the way that computer work completely."
       ]
     }
   },
@@ -39,7 +76,7 @@
     "narrator": {
       "text": [
         "In classical computer, smallest unit to store data is bit, which can be either 0 or 1 state.",
-        "So the only way that we can change bit state is bitflip, from 0 to 1 or 1 to 0."
+        "So the only way that we can change bit state is flip it, from 0 to 1 or 1 to 0."
       ]
     }
   },
@@ -77,8 +114,12 @@
     },
     "narrator": {
       "text": [
-        "This is qubit composer where you can apply basic gates to the qubit."
+        "This is \"Qubit Composer\", where you can apply basic gates to the qubit."
       ]
+    },
+    "composer": {
+      "isDisplay": true,
+      "availableGates": ["h"]
     }
   },
   {
@@ -92,10 +133,6 @@
         
         "Let’s apply Hadamard gate by drag it to the timeline."
       ]
-    },
-    "composer": {
-      "isDisplay": true,
-      "availableGates": ["h"]
     }
   },
   {
@@ -112,6 +149,18 @@
     }
   },
   {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "You can click on any gate to see the description and preview an effect on the qubit."
+      ]
+    }
+  },
+  {
     "dispatch": [
       { "action": "addChallengeMarker", "payload": ["0.7071067811865475", "-0.7071067811865475"]}
     ],
@@ -122,7 +171,6 @@
     },
     "narrator": {
       "text": [
-        "You can click on any gate to see the description and preview an effect on the qubit.",
         "Let’s add appropriate gates to move qubit state toward blinking point!"
       ]
     },
@@ -138,7 +186,18 @@
     },
     "narrator": {
       "text": [
-        "Now you know how to change qubit state",
+        "Well done! Now you know how to change qubit state."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
         "But in order to get qubit value, a measurement operation needed to be applied."
       ]
     }
@@ -151,8 +210,7 @@
     },
     "narrator": {
       "text": [
-        "Measurement is an indeterministic operation",
-        "which make superposition state collapse to either 0 or 1 with some probability value."
+        "Measurement is an indeterministic operation which make state collapse to either 0 or 1 with some probability value."
       ]
     }
   },
@@ -191,8 +249,19 @@
     },
     "narrator": {
       "text": [
-        "With qubit, researcher can develop quantum algorithms to solve some particular problems",
-        "in more efficient way when comparing to classical method."
+        "Equally superposition would give both 0 and 1 result with equally probability."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "With qubit, researcher can develop quantum algorithms to solve some particular problems in more efficient way."
       ]
     },
     "composer": {
@@ -207,8 +276,32 @@
     },
     "narrator": {
       "text": [
-        "Quantum computer hardware is still under development, but it can not replace classical computer.",
+        "Quantum computer hardware is still under development, but keep in mind that it can not replace classical computer."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
         "It was built to tackle different kind of problems which might take human kind to a new discovery."
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "Sound cool isn't it!?",
+        "Welcome to the first step of new human kind computing era!"
       ]
     }
   }
