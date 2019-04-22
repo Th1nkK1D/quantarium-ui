@@ -6,17 +6,29 @@
     <div class="fx fx-x1 fx-col fx-justcent">
       <h1>Quantarium</h1>
 
-      <router-link to="story">Story Mode</router-link>
-      <router-link to="composer">Composer Mode</router-link>
+      <router-link to="story">{{ printText(['Story Mode', 'โหมดเนื้อเรื่อง']) }}</router-link>
+      <router-link to="composer">{{ printText(['Composer Mode', 'โหมดอิสระ']) }}</router-link>
 
-      <span>&copy; Quantarium Team {{ new Date().getFullYear() }} - All right reserved</span>
+      <span @click="toggleNextLanguage()">- {{ printText(['ภาษาไทย', 'English']) }} -</span>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
-  name: 'MainMenu'
+  name: 'MainMenu',
+  computed: {
+    ...mapGetters([
+      'printText'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'toggleNextLanguage'
+    ])
+  }
 }
 </script>
 
@@ -55,8 +67,8 @@ export default {
     }
 
     span {
-      font-size: 0.75em;
-      margin-top: 2em;
+      font-size: 0.8em;
+      margin-top: 1em;
     }
   }
 </style>
