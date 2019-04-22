@@ -23,7 +23,7 @@ body {
 }
 
 #app {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', 'Sarabun', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
