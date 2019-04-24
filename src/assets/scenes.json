@@ -37,7 +37,8 @@
     },
     "narrator": {
       "text": [
-        "I think you know how important of computer is nowaday."
+        "I think you know how important of computer is nowaday.",
+        "เธอคงรู้อยู่แล้วล่ะว่าปัจจุบันคอมพิวเตอร์สำคัญต่อพวกเรามากแค่ไหน"
       ]
     }
   },
@@ -50,7 +51,20 @@
     "narrator": {
       "text": [
         "But there are still many complex problem that can’t be solved by these computer.",
-        "A new way of computing is needed."
+        "แต่ว่าก็ยังมีปัญหาทางการคำนวณหลายอย่าง ที่ซับซ้อนเกินกว่าจะใช้คอมพิวเตอร์ในปัจจุบันหาคำตอบ"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "A new way of computing is needed.",
+        "เราเลยจำเป็นต้องหาวิธีการคำนวนทางคอมพิวเตอร์แบบใหม่"
       ]
     }
   },
@@ -63,7 +77,20 @@
     "narrator": {
       "text": [
         "So quantum computing was invented using modern physics theory like quantum physics",
-        "And it change the way that computer work completely."
+        "การคำนวณเชิงควอนตัมจึงถูกคิดค้นขึ้น โดยใช้ความรู้ทางฟิสิกส์สมัยใหม่อย่างควอนตัมฟิสิกส์เข้ามาช่วย"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "And it change the way that computer work completely.",
+        "และมันก็ได้เปลี่ยนวิธีการคำนวณของคอมพิิวเตอร์แบบเดิมไปโดยสิ้นเชิง"
       ]
     }
   },
@@ -76,7 +103,7 @@
     "narrator": {
       "text": [
         "In classical computer, smallest unit to store data is bit, which can be either 0 or 1 state.",
-        "So the only way that we can change bit state is flip it, from 0 to 1 or 1 to 0."
+        "คอมพิวเตอร์ในปัจจุบันเก็บข้อมูลในหน่วยที่เล็กที่สุกที่เรียกว่า บิท (Bit) ซึ่งสภาวะของบิทนั้นเป็นได้แค่ 0 หรือ 1 เท่านั้น"
       ]
     }
   },
@@ -88,8 +115,34 @@
     },
     "narrator": {
       "text": [
-        "But for quantum computer, we use “Qubit” which can be represented with a sphere.",
-        "Qubit state can be 0, 1 and also any point in between on the sphere."
+        "So the only way that we can change bit state is fliping it, from 0 to 1 or 1 to 0.",
+        "เพราะฉนั้น เราสามารถเปลี่ยนสภาวะของบิทได้เพียงแบบเดียว คือการสลับสภาวะ จาก 0 เป็น 1 หรือ 1 เป็น 0"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "But for quantum computer, we use Qubit which can be represented with a sphere.",
+        "แต่สำหรับเครื่องควอนตัมคอมพิวเตอร์นั้น เราใช้ คิวบิิท (Qubit) ซึ่งเธอสามารถจินตนาการได้ว่ามันคือทรงกลม"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "Qubit state can be 0, 1 and also any point in between on the sphere.",
+        "สภาวะของคิวบิทสามารถเป็นได้ทั้ง 0, 1 และจุดใดก็ได้ที่อยู่บนทรงกลม"
       ]
     }
   },
@@ -102,7 +155,7 @@
     "narrator": {
       "text": [
         "We can change the qubit state by rotating it around the sphere in any angle and direction.",
-        "Operators that rotate qubit state are called “Quantum Gates”"
+        "เราสามารถเปลี่ยนสภาวะของคิวบิทได้ด้วยการหมุนจุดดังกล่าวไปรอบๆ ทรงกลม ด้วยมุมเท่าใดและทิศทางไหนก้ได้"
       ]
     }
   },
@@ -114,7 +167,21 @@
     },
     "narrator": {
       "text": [
-        "This is \"Qubit Composer\", where you can apply basic gates to the qubit."
+        "Operators that rotate qubit state are called “Quantum Gates”",
+        "เราเรียกตัวดำเนินการที่ทำการเปลี่ยนสภาวะของคิวบิทว่า ตัวดำเนินการทางควอนตัม (Quantum Gates)"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
+        { "trigger": "narrator-text-read" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "This is \"Qubit Composer\", where you can apply basic gates to the qubit.",
+        "นี่คือ \"Qubit Composer\", ที่ที่เธอสามารถใช้ตัวดำเนินการทางควอนตัมพื้นฐานกับคิวบิตได้"
       ]
     },
     "composer": {
@@ -130,8 +197,8 @@
     },
     "narrator": {
       "text": [
-        
-        "Let’s apply Hadamard gate by drag it to the timeline."
+        "Let’s apply Hadamard gate by drag it to the timeline.",
+        "ไหนลองใช้ตัวตำเนินการ Hadamard โดยการลากลงไปใส่ในไทม์ไลน์ดูสิ!"
       ]
     }
   },
@@ -143,8 +210,8 @@
     },
     "narrator": {
       "text": [
-        "Look at the qubit, now it is neither 0 or 1 but in between.",
-        "We called this state as a “Superposition”"
+        "Look at the qubit, now it is neither 0 or 1 but in between. We called this state as a “Superposition”",
+        "ลองดูที่คิวบิทสิ! ตอนนี้สภาวะของระบบไม่ใช่ 0 หรือ 1 แต่กลับอยู่ตรงกลาง เราเรียกสภาวะที่จุดนี้ว่า การทับซ้อนของคลื่น (Superposition)"
       ]
     }
   },
@@ -156,7 +223,8 @@
     },
     "narrator": {
       "text": [
-        "You can click on any gate to see the description and preview an effect on the qubit."
+        "You can click on any gate to see the description and preview an effect on the qubit.",
+        "เธอสามารถกดที่การดำเนินการใดๆ ก็ได้ เพื่อดูคำอธิบายและผลลัพท์ที่จะเกิดขึ้นบนคิวบิท"
       ]
     }
   },
@@ -171,7 +239,8 @@
     },
     "narrator": {
       "text": [
-        "Let’s add appropriate gates to move qubit state toward blinking point!"
+        "Let’s add appropriate gates to move qubit state toward blinking point!",
+        "คราวนี้เธอลองเลือกใช้ตัวเนินการที่ถูกต้อง เพื่อเปลี่ยนสภาวะของคิวบิทไปอยู่ในจุดที่กระพริบอยู่ดูสิ"
       ]
     },
     "composer": {
@@ -186,7 +255,8 @@
     },
     "narrator": {
       "text": [
-        "Well done! Now you know how to change qubit state."
+        "Well done! Now you know how to change qubit state.",
+        "เยี่ยมไปเลย! ตอนนี้เธอเข้าใจวิธีในการเปลี่ยนสภาวะของคิวบิทแล้ว"
       ]
     }
   },
@@ -198,7 +268,8 @@
     },
     "narrator": {
       "text": [
-        "But in order to get qubit value, a measurement operation needed to be applied."
+        "But in order to get qubit value, a measurement operation needed to be applied.",
+        "แต่การจะนำค่าของคิวบิทออกมาใช้นั้น เราจำเป็นต้องใช้ การวัด (Measurement) กับคิวบิิท"
       ]
     }
   },
@@ -210,7 +281,8 @@
     },
     "narrator": {
       "text": [
-        "Measurement is an indeterministic operation which make state collapse to either 0 or 1 with some probability value."
+        "Measurement is an indeterministic operation which make state collapse to either 0 or 1 with some probability.",
+        "การวัดเป็นการดำเนินการที่ทำให้สภาวะของคิวบิทยุบตัวลง กลายเป็น 0 หรือไม่ก็ 1 ด้วยค่าความน่าจะเป็นบางอย่าง ทำให้ผลลัพท์ไม่แน่นอน"
       ]
     }
   },
@@ -222,7 +294,8 @@
     },
     "narrator": {
       "text": [
-        "Let's do measurement for 1000 times on the same qubit state to see the probability of getting 0 and 1."
+        "Let's do measurement for 1000 times on the same qubit state to see the probability of getting 0 and 1.",
+        "เรามาลองทำการวัดเป็นจำนวน 1000 ครั้งบนสภาวะของคิวบิทนี้กัน เพื่อที่จะดูว่าความน่าจะเป็นที่จะได้ผลลัมพธ์เป็น 0 และ 1 นั้นเป็นอย่างไร"
       ]
     },
     "composer": {
@@ -237,7 +310,8 @@
     },
     "narrator": {
       "text": [
-        "As you can see, the chance of getting 1 and 0 is related to the distance from qubit state before a measurement."
+        "The chance of getting 1 and 0 is related to the distance from qubit state before a measurement.",
+        "ความน่าจะเป็นที่จะวัดได้ค่า 0 และ 1 สัมพันธ์กับระยะห่างจากสภาวะของคิวบิทก่อนที่จะทำการวัด"
       ]
     }
   },
@@ -249,7 +323,8 @@
     },
     "narrator": {
       "text": [
-        "Equally superposition would give both 0 and 1 result with equally probability."
+        "As you can see, the equally superposition would give both 0 and 1 result with equally probability.",
+        "จากผลลัพธ์ที่เธอเห็น สภาวะการทับซ้อนของคลื่นที่เท่ากัน ย่อมมีโอกาสให้ผลลัพธ์จากการวัดเป็น 0 และ 1 ด้วยความน่าจะเป็นที่เท่าๆ กัน"
       ]
     }
   },
@@ -261,7 +336,8 @@
     },
     "narrator": {
       "text": [
-        "With qubit, researcher can develop quantum algorithms to solve some particular problems in more efficient way."
+        "Right now, Quantum computer hardware is still under development.",
+        "ในปัจจุบัน เครื่องควอนตัมคอมพิวเตอร์ยังคงอยู่ระหว่างการพัฒนา"
       ]
     },
     "composer": {
@@ -276,7 +352,8 @@
     },
     "narrator": {
       "text": [
-        "Quantum computer hardware is still under development, but keep in mind that it can not replace classical computer."
+        "But with knowledges about qubit, researcher can design quantum algorithms to solve some particular problems in more efficient way.",
+        "แต่ด้วยความรู้ที่มีเกี่ยวกับคิวบิท นักวิจัยจึงสามารถออกแบบอัลกอลิทึมเชิงควอนตัม ที่สามารถแก้ไขปัญหาการคำนวณบางประเภทได้รวดเร็วกว่าเดิม"
       ]
     }
   },
@@ -288,7 +365,8 @@
     },
     "narrator": {
       "text": [
-        "It was built to tackle different kind of problems which might take human kind to a new discovery."
+        "Keep in mind that it can not replace classical computer. It was built to tackle different kind of problems which might take us to a new discovery.",
+        "จำไว้นะว่ามันไม่สามารถแทนที่คอมพิวเตอร์แบบเดิมได้ หากแต่มันถูกสร้างเพื่อแก้ปัญหาที่ต่างออกไป ซึ่งอาจจะพาเราไปสู่การค้นพบอะไรที่ยิ่งใหญ่ก็ได้ในอนาคต"
       ]
     }
   },
@@ -300,8 +378,8 @@
     },
     "narrator": {
       "text": [
-        "Sound cool isn't it!?",
-        "Welcome to the first step of new human kind computing era!"
+        "Sound cool isn't it!? Welcome to the first step of new human kind computing era!",
+        "ฟังดูเจ๋งใช่ไหมละ!? ยินดีต้อนรับเข้าสู่ก้าวแรกของการคำนวณยุคใหม่ของมวลมนุษยชาติ!"
       ]
     }
   }

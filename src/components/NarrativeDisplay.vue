@@ -56,7 +56,7 @@ export default {
 
       p {
         font-size: 1.2em;
-        /* margin: .5em 0; */
+        margin: .5em 0;
       }
 
       .next-btn {
