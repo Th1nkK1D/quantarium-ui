@@ -7,8 +7,8 @@
     },
     "narrator": {
       "text": [
-        "Hi there!",
-        "I'm Qitty, the Schrodinger's cat"
+        "Hi there! I'm Qitty, the Schrodinger's cat",
+        "สวัสดีจ้า! ฉันชื่อคิตตี้ เป็นแมวของชโรดิงเจอร์"
       ]
     },
     "composer": {
@@ -24,8 +24,8 @@
     },
     "narrator": {
       "text": [
-        "Quantum world might sound scary to you",
-        "But don't worry because I'm here to help!"
+        "Quantum world might sound scary to you. But don't worry because I'm here to help!",
+        "โลกของควอนตัมอาจจะฟังดูน่ากลัวนะ แต่ไม่ต้องห่วงเพราะฉันจะช่วยเธอเอง!"
       ]
     }
   },

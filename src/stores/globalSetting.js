@@ -1,12 +1,12 @@
 const state = {
   global: {
     apiServer: `http://${window.location.hostname}:3000/api`,
-    language: 0
+    language: 1
   }
 }
 
 const getters = {
-  printText (state) {
+  langSwitch (state) {
     return function (textList) {
       return textList[state.global.language]
     }

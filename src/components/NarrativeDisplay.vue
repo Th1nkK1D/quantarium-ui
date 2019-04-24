@@ -1,8 +1,8 @@
 <template>
   <div class="fx-row narrative-display">
     <div class="fx-x2 content">
-      <p v-for="t in narratorState.text" :key="t">{{ t }}</p>
-      <div v-if="narrativeIsPending" class="next-btn" @click="onClickNext()"> next > </div>
+      <p>{{ langSwitch(narratorState.text) }}</p>
+      <div v-if="narrativeIsPending" class="next-btn" @click="onClickNext()"> {{ langSwitch(['next', 'ต่อไป']) }} > </div>
       <div class="fx holder">
         <div class="triangle"></div>
       </div>
@@ -12,13 +12,18 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'NarrativeDisplay',
   props: {
     narratorState: Object,
     narrativeIsPending: Boolean
+  },
+  computed: {
+    ...mapGetters([
+      'langSwitch'
+    ])
   },
   methods: {
     ...mapActions([
@@ -51,7 +56,7 @@ export default {
 
       p {
         font-size: 1.2em;
-        margin: .5em 0;
+        /* margin: .5em 0; */
       }
 
       .next-btn {
@@ -75,7 +80,6 @@ export default {
           border-color: transparent transparent transparent white;
         }
       }
-      
     }
   }
 </style>

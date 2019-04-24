@@ -6,10 +6,10 @@
     <div class="fx fx-x1 fx-col fx-justcent">
       <h1>Quantarium</h1>
 
-      <router-link to="story">{{ printText(['Story Mode', 'โหมดเนื้อเรื่อง']) }}</router-link>
-      <router-link to="composer">{{ printText(['Composer Mode', 'โหมดอิสระ']) }}</router-link>
+      <router-link to="story">{{ langSwitch(['Story Mode', 'โหมดเนื้อเรื่อง']) }}</router-link>
+      <router-link to="composer">{{ langSwitch(['Composer Mode', 'โหมดอิสระ']) }}</router-link>
 
-      <span @click="toggleNextLanguage()">- {{ printText(['ภาษาไทย', 'English']) }} -</span>
+      <span @click="toggleNextLanguage()">- {{ langSwitch(['ภาษาไทย', 'English']) }} -</span>
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   name: 'MainMenu',
   computed: {
     ...mapGetters([
-      'printText'
+      'langSwitch'
     ])
   },
   methods: {
