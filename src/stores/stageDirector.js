@@ -22,7 +22,7 @@ const getters = {
     return state.stage.passConditions && state.stage.passConditions.length > 0 && state.stage.passConditions[0].trigger === 'narrator-text-read'
   },
   storyIsDone (state) {
-    return state.stage.id === state.story.total - 1
+    return state.stage.id === state.story.total
   }
 }
 
@@ -68,8 +68,8 @@ const actions = {
 
     dispatch('preApplySetting', nextScene)
   },
-  async fireEvent ({ state, commit, dispatch }, payload) {
-    console.log(payload)
+  async fireEvent ({ state, getters, commit, dispatch }, payload) {
+    console.log(state.stage.id)
 
     if (state.stage.storyMode) {
       const { trigger, parameter, result } = state.stage.passConditions[0]
@@ -92,6 +92,11 @@ const actions = {
         if (state.stage.passConditions.length === 0) {
           if (state.stage.id === state.story.total - 1) {
             console.log('story mode completed')
+            commit('applySetting', {
+              stage: {
+                id: state.stage.id + 1
+              }
+            })
           } else {
             dispatch('loadNextScene')
           }
