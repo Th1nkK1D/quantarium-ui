@@ -4,7 +4,7 @@
       "name": "Hadamard Gate",
       "description": [
          "Rotate 1/2 sphere about the Z-axis and 1/4 sphere about the Y-axis",
-         "หมุนทรงกลม 1/2 ลูกตามแนวแกน Z และ 1/4 ลูกตามแนวแกน Y"
+         "หมุนทรงกลม 1/2 ลูกรอบแกน Z และ 1/4 ลูกรอบแกน Y"
       ],
       "colors": ["#666FE0", "#24C795"]
    },
@@ -13,7 +13,7 @@
       "name": "Pauli-X Gate",
       "description": [
          "Rotate 1/2 sphere about X-axis",
-         "หมุนทรงกลม 1/2 ลูกตามแนวแกน X"
+         "หมุนทรงกลม 1/2 ลูกรอบแกน X"
       ],
       "colors": ["#6AD57F", "#EFF465"]
    },
@@ -22,7 +22,7 @@
       "name": "Pauli-Y Gate",
       "description": [
          "Rotate 1/2 sphere about Y-axis",
-         "หมุนทรงกลม 1/2 ลูกตามแนวแกน Y"
+         "หมุนทรงกลม 1/2 ลูกรอบแกน Y"
       ],
       "colors": ["#F7E44E", "#C74A24"]
    },
@@ -31,7 +31,7 @@
       "name": "Pauli-Z Gate",
       "description": [
          "Rotate 1/2 sphere about Z-axis",
-         "หมุนทรงกลม 1/2 ลูกตามแนวแกน Z"
+         "หมุนทรงกลม 1/2 ลูกรอบแกน Z"
       ],
       "colors": ["#ED8863", "#D82FD8"]
    }

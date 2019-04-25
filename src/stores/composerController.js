@@ -149,6 +149,14 @@ const actions = {
 
       resolve(compareRes.result)
     })
+  },
+  playCutscene ({ state }, sceneName) {
+    console.log('PLAY ' + sceneName)
+    Qapi.playCutscene(state.global.apiServer, sceneName)
+  },
+  clearCutscene ({ state }) {
+    console.log('CLEAR')
+    Qapi.clearCutscene(state.global.apiServer)
   }
 }
 

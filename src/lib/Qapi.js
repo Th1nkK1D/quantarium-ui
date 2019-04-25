@@ -24,7 +24,10 @@ const Qapi = {
   unmeasure: url => requestHandler(url, 'post', '/unmeasure'),
   compare: (url, q1, q2) => requestHandler(url, 'get', '/compare/' + q1.join(',') + '/' + q2.join(',')),
   mark: (url, q) => requestHandler(url, 'put', '/marker/' + q.join(',')),
-  unmark: url => requestHandler(url, 'delete', '/marker')
+  unmark: url => requestHandler(url, 'delete', '/marker'),
+  playCutscene: (url, sceneName) => requestHandler(url, 'post', '/cutscene/' + sceneName),
+  clearCutscene: url => requestHandler(url, 'delete', '/cutscene')
+
 }
 
 export default Qapi
