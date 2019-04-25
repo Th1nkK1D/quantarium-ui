@@ -15,18 +15,18 @@
 }
 
 @font-face {
-    font-family: 'Sarabun';
-    src: url('sarabun-regular-webfont.woff2') format('woff2'),
-         url('sarabun-regular-webfont.woff') format('woff');
+    font-family: 'Pridi';
+    src: url('pridi-light-webfont.woff2') format('woff2'),
+         url('pridi-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'Sarabun';
-    src: url('sarabun-bold-webfont.woff2') format('woff2'),
-         url('sarabun-bold-webfont.woff') format('woff');
+    font-family: 'Pridi';
+    src: url('pridi-regular-webfont.woff2') format('woff2'),
+         url('pridi-regular-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 
