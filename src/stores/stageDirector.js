@@ -69,7 +69,7 @@ const actions = {
     dispatch('preApplySetting', nextScene)
   },
   async fireEvent ({ state, getters, commit, dispatch }, payload) {
-    console.log(state.stage.id)
+    console.log(payload)
 
     if (state.stage.storyMode) {
       const { trigger, parameter, result } = state.stage.passConditions[0]

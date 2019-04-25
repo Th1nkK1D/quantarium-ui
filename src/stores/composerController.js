@@ -11,6 +11,7 @@ const state = {
     focusedGate: undefined,
     appliedGates: [],
     allowMeasure: true,
+    allowReset: true,
     collapsed: false,
     measurement: {
       batchSize: 0,

@@ -13,7 +13,8 @@
     },
     "composer": {
       "isDisplay": false,
-      "allowMeasure": false
+      "allowMeasure": false,
+      "allowReset": false
     }
   },
   {
