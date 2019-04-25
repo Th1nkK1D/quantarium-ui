@@ -2,7 +2,7 @@
   <div class="fx-row narrative-display">
     <div class="fx-x2 content" @click="onClickNext()">
       <p>{{ langSwitch(narratorState.text) }}</p>
-      <div v-if="narrativeIsPending" class="next-btn"> {{ langSwitch(['next', 'ต่อไป']) }} > </div>
+      <div v-if="narrativeIsPending" class="next-btn"> {{ langSwitch(['next', 'ถัดไป']) }} > </div>
       <div class="fx holder">
         <div class="triangle"></div>
       </div>

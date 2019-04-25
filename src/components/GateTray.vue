@@ -14,11 +14,11 @@
     <!-- gate detail -->
     <div class="fx-col subtext">
       <div v-if="focusedGate === undefined">
-        Available quantum gates
+        {{ langSwitch(['Available quantum gates', 'ตัวดำเนินการทางควอนตัม'])}}
       </div>
       <div v-else>
         <strong>{{ focusedGate.name }}</strong>
-        {{ focusedGate.description }}
+        {{ langSwitch(focusedGate.description) }}
       </div>
     </div><!-- end of gate detail -->
   </div>
@@ -40,7 +40,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'focusedGate'
+      'focusedGate',
+      'langSwitch'
     ])
   },
   methods: {

@@ -11,10 +11,10 @@
       <GateStage class="fx-x1" :appliedGates="appliedGates" :onRemoveGate="popGate" :isCollapsed="composer.collapsed"/>
       <div v-if="composer.allowMeasure" class="fx-col options">
         <button v-if="!composer.collapsed" @click="measure(1000)">
-          Measure<br>x1000
+          {{ langSwitch(['Measure', 'ทำการวัด']) }}<br>x1000
         </button>
         <button v-else @click="unmeasure()">
-          Revert
+          {{ langSwitch(['Revert', 'ย้อนกลับ']) }}
         </button>
       </div>
     </div><!-- end of stage -->
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 import GateStage from '@/components/GateStage'
 import GateTray from '@/components/GateTray'
@@ -43,6 +43,9 @@ export default {
   computed: {
     ...mapState([
       'composer'
+    ]),
+    ...mapGetters([
+      'langSwitch'
     ]),
     availableGates () {
       return this.composer.availableGates.map(ag => this.composer.gateList.find(gl => ag === gl.symbol))
