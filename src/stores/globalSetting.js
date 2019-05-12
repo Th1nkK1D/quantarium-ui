@@ -1,7 +1,7 @@
 const state = {
   global: {
     apiServer: `http://${window.location.hostname}:3000/api`,
-    language: 1
+    language: 0
   }
 }
 

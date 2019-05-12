@@ -1,8 +1,16 @@
 <template>
   <div class="fx-row narrative-display">
     <div class="fx-x2 content" @click="onClickNext()">
-      <p>{{ langSwitch(narratorState.text) }}</p>
-      <div v-if="narrativeIsPending" class="next-btn"> {{ langSwitch(['next', 'ถัดไป']) }} > </div>
+      <!-- <p>{{ langSwitch(narratorState.text) }}</p> -->
+      <vue-typer
+        :text="langSwitch(narratorState.text)"
+        :repeat="0"
+        initial-action="typing"
+        :type-delay="30"
+        caret-animation="blink"
+        @typed="typingIsDone = true"
+      ></vue-typer>
+      <div :class="`next-btn${narrativeIsPending && typingIsDone ? '': ' is-hide'}`"> {{ langSwitch(['next', 'ถัดไป']) }} > </div>
       <div class="fx holder">
         <div class="triangle"></div>
       </div>
@@ -13,12 +21,21 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { VueTyper } from 'vue-typer'
 
 export default {
   name: 'NarrativeDisplay',
   props: {
     narratorState: Object,
     narrativeIsPending: Boolean
+  },
+  components: {
+    VueTyper
+  },
+  data () {
+    return {
+      typingIsDone: false
+    }
   },
   computed: {
     ...mapGetters([
@@ -30,9 +47,13 @@ export default {
       'fireEvent'
     ]),
     onClickNext () {
-      this.fireEvent({
-        trigger: 'narrator-text-read'
-      })
+      if (this.narrativeIsPending && this.typingIsDone) {
+        this.typingIsDone = false
+
+        this.fireEvent({
+          trigger: 'narrator-text-read'
+        })
+      }
     }
   }
 }
@@ -51,19 +72,21 @@ export default {
       background-color: white;
       color: black;
       border-radius: 0.4rem;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
       margin: auto 2rem;
 
-      p {
+      .vue-typer {
         font-size: 1.2em;
         margin: .5em 0;
       }
 
       .next-btn {
         text-align: right;
-        padding: .5em;
-        padding-top: 0;
         opacity: 0.4;
+
+        &.is-hide {
+          opacity: 0;
+        }
       }
       .holder {
         position: absolute;
