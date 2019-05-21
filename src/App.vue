@@ -70,4 +70,20 @@ body {
   justify-content: center;
 }
 
+.menu-buttons {
+  a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em;
+    border: 1px solid white;
+    border-radius: 2px;
+    margin: 0 0 0.5em;
+
+    &:active {
+      color: black;
+      background-color: white;
+    }
+  }
+}
+
 </style>

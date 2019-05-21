@@ -3,7 +3,7 @@
     <div class="fx fx-col fx-justcent">
       <img src="/img/quantarium_logo.png" alt="">
     </div>
-    <div class="fx fx-x1 fx-col fx-justcent">
+    <div class="fx fx-x1 fx-col fx-justcent menu-buttons">
       <h1>Quantarium</h1>
 
       <router-link to="story">{{ langSwitch(['Story Mode', 'โหมดเนื้อเรื่อง']) }}</router-link>
@@ -50,20 +50,6 @@ export default {
       margin-top: 0;
       font-size: 4em;
       font-weight: normal;
-    }
-
-    a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5em;
-      border: 1px solid white;
-      border-radius: 2px;
-      margin: 0 0 0.5em;
-
-      &:active {
-        color: black;
-        background-color: white;
-      }
     }
 
     span {

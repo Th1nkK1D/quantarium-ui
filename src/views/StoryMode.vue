@@ -12,8 +12,9 @@
       <img src="/svg/qitty.svg" class="qitty" :style="{ bottom: composerIsDisplayed ? '-12vh' : '25vh' }" />
     </div>
     <div v-else class="ending-menu">
-      <div>
-        <h2>Story mode is completed</h2>
+      <div class="menu-buttons">
+        <h2>Story mode is completed!</h2>
+          <a @click="initStory()">Replay story mode</a>
           <router-link to="/">Return to main menu</router-link>
       </div>
     </div>
@@ -46,11 +47,14 @@ export default {
     ...mapActions([
       'loadAllScenes',
       'resetComposer'
-    ])
+    ]),
+    async initStory () {
+      await this.resetComposer()
+      await this.loadAllScenes()
+    }
   },
-  async mounted () {
-    await this.resetComposer()
-    await this.loadAllScenes()
+  mounted () {
+    this.initStory()
   }
 }
 </script>
@@ -105,6 +109,8 @@ export default {
       div {
         margin: auto;
         text-align: center;
+        display: flex;
+        flex-direction: column;
       }
     }
   }
