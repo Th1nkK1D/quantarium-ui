@@ -29,7 +29,7 @@ const getters = {
 const mutations = {
   initScenes (state) {
     Vue.set(state, 'story', {
-      scenes: scenes,
+      scenes: JSON.parse(JSON.stringify(scenes)), // Deep clone
       total: scenes.length
     })
     Vue.set(state, 'stage', {
