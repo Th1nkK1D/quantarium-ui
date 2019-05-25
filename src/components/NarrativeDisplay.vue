@@ -1,15 +1,16 @@
 <template>
   <div class="fx-row narrative-display">
     <div class="fx-x2 content" @click="onClickNext()">
-      <!-- <p>{{ langSwitch(narratorState.text) }}</p> -->
-      <vue-typer
-        :text="langSwitch(narratorState.text)"
-        :repeat="0"
-        initial-action="typing"
-        :type-delay="30"
-        caret-animation="blink"
-        @typed="typingIsDone = true"
-      ></vue-typer>
+      <vue-typed-js
+        :key="displayedText"
+        :strings="[displayedText]"
+        :typeSpeed="15"
+        cursorChar=""
+        @onComplete="typingIsDone = true"
+        ref="typer"
+      >
+        <span class="typing"></span>
+      </vue-typed-js>
       <div :class="`next-btn${narrativeIsPending && typingIsDone ? '': ' is-hide'}`"> {{ langSwitch(['next', 'ถัดไป']) }} > </div>
       <div class="fx holder">
         <div class="triangle"></div>
@@ -21,16 +22,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { VueTyper } from 'vue-typer'
 
 export default {
   name: 'NarrativeDisplay',
   props: {
     narratorState: Object,
     narrativeIsPending: Boolean
-  },
-  components: {
-    VueTyper
   },
   data () {
     return {
@@ -40,7 +37,10 @@ export default {
   computed: {
     ...mapGetters([
       'langSwitch'
-    ])
+    ]),
+    displayedText () {
+      return this.langSwitch(this.narratorState.text)
+    }
   },
   methods: {
     ...mapActions([
@@ -75,9 +75,9 @@ export default {
       padding: 0.75rem 1rem;
       margin: auto 2rem;
 
-      .vue-typer {
+      .typing {
         font-size: 1.2em;
-        margin: .5em 0;
+        margin: .25em 0;
       }
 
       .next-btn {
