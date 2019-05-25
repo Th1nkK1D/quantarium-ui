@@ -68,10 +68,16 @@ const actions = {
       measurement: newState.measurement
     })
   },
-  async previewGate ({ state }, gate) {
+  async previewGate ({ state, dispatch }, gate) {
     if (!state.composer.collapsed) {
       const newState = await Qapi.previewGate(state.global.apiServer, gate.symbol)
       console.log(newState)
+
+      dispatch('fireEvent', {
+        trigger: 'composer-gate-preview',
+        parameter: gate.symbol,
+        result: newState.state
+      })
     }
   },
   async pushGate ({ state, commit, dispatch }, gate) {

@@ -119,8 +119,8 @@
     },
     "narrator": {
       "text": [
-        "So the only way that we can change bit state is fliping it, from 0 to 1 or 1 to 0.",
-        "เพราะฉะนั้น เราสามารถเปลี่ยนสภาวะของบิทได้เพียงแบบเดียว คือการสลับสภาวะ จาก 0 เป็น 1 หรือ 1 เป็น 0"
+        "So the only way that we can change bit state is fliping it between 0 and 1 (as you can see the point on top and bottom of the sphere)",
+        "เราจึงสามารถเปลี่ยนสภาวะของบิทได้เพียงแบบเดียว คือการสลับสภาวะระหว่าง 0 และ 1 (ตามที่เธอเห็นจุดตรงด้านบนสุดและล่างสุดของทรงกลม)"
       ]
     }
   },
@@ -148,8 +148,8 @@
     },
     "narrator": {
       "text": [
-        "Qubit state can be 0, 1 and also any point in between on the sphere.",
-        "สภาวะของคิวบิทสามารถเป็นได้ทั้ง 0, 1 และจุดใดก็ได้ที่อยู่บนทรงกลม"
+        "Qubit state can be 0, 1 and also any point in between on the sphere. Take a look at the point on the sphere!",
+        "สภาวะของคิวบิทสามารถเป็นได้ทั้ง 0, 1 และจุดใดก็ได้ที่อยู่บนทรงกลม ลองดูจุดบนทรงกลมตอนนี้สิ!"
       ]
     }
   },
@@ -187,8 +187,8 @@
     },
     "narrator": {
       "text": [
-        "This is \"Qubit Composer\", where you can apply basic gates to the qubit.",
-        "นี่คือ \"Qubit Composer\", ที่ที่เธอสามารถใช้ตัวดำเนินการทางควอนตัมพื้นฐานกับคิวบิทได้"
+        "This is \"Qubit Composer\" where you can apply basic gates to the qubit.",
+        "นี่คือ Qubit Composer ที่ที่เธอสามารถใช้ตัวดำเนินการทางควอนตัมพื้นฐานกับคิวบิทได้"
       ]
     },
     "composer": {
@@ -202,13 +202,26 @@
   {
     "stage": {
       "passConditions": [
+        { "trigger": "composer-gate-preview", "parameter": "h" }
+      ]
+    },
+    "narrator": {
+      "text": [
+        "You can tap gate icons once to see the description on the screen and effect on the sphere",
+        "เธอสามารถแตะที่ตัวดำเนินการหนึ่งครั้ง เพื่อดูรายละเอียดของตัวดำเนินการบนหน้าจอและผลลัพท์ที่จะเกิดขึ้นบททรงกลม"
+      ]
+    }
+  },
+  {
+    "stage": {
+      "passConditions": [
         { "trigger": "composer-gate-push", "parameter": "h" }
       ]
     },
     "narrator": {
       "text": [
-        "Let’s apply Hadamard gate by drag it to the timeline.",
-        "ไหนลองใช้ตัวตำเนินการ Hadamard โดยการลากลงไปใส่ในไทม์ไลน์ดูสิ!"
+        "And you can tap it again to apply the gate to the qubit",
+        "และเธอสามารถกดที่ตัวดำเนินการเดิมซ้ำอีกครั้ง เพื่อใช้ตัวดำเนินการดังกล่าวกับคิวบิท"
       ]
     }
   },
@@ -226,19 +239,6 @@
     }
   },
   {
-    "stage": {
-      "passConditions": [
-        { "trigger": "narrator-text-read" }
-      ]
-    },
-    "narrator": {
-      "text": [
-        "You can click on any gate to see the description and preview an effect on the qubit.",
-        "เธอสามารถกดที่การดำเนินการใดๆ ก็ได้ เพื่อดูคำอธิบายและผลลัพท์ที่จะเกิดขึ้นบนคิวบิท"
-      ]
-    }
-  },
-  {
     "dispatch": [
       { "action": "addChallengeMarker", "payload": ["0.7071067811865475", "-0.7071067811865475"]}
     ],
@@ -249,8 +249,8 @@
     },
     "narrator": {
       "text": [
-        "Let’s add appropriate gates to move qubit state toward blinking point!",
-        "คราวนี้เธอลองเลือกใช้ตัวเนินการที่ถูกต้อง เพื่อเปลี่ยนสภาวะของคิวบิทไปอยู่ในจุดที่กระพริบอยู่ดูสิ"
+        "Let’s try adding new gates to move qubit state toward blinking point!",
+        "คราวนี้เธอลองเลือกใช้ตัวเนินการใหม่ๆ เพื่อเปลี่ยนสภาวะของคิวบิทไปอยู่ในจุดที่กระพริบอยู่บททรงกลมดูสิ"
       ]
     },
     "composer": {
