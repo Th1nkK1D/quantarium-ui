@@ -10,7 +10,7 @@
     <div class="fx-row fx-x1" style="padding: 0 4em">
       <GateStage class="fx-x1" :appliedGates="appliedGates" :onRemoveGate="popGate" :isCollapsed="composer.collapsed"/>
       <div v-if="composer.allowMeasure" class="fx-col options">
-        <button v-if="!composer.collapsed" @click="measure(1000)">
+        <button v-if="!composer.collapsed" @click="measure(1000)" :class="{'is-objective': currentObjective && currentObjective.trigger === 'composer-measure' }">
           {{ langSwitch(['Measure', 'ทำการวัด']) }}<br>x1000
         </button>
         <button v-else @click="unmeasure()">
@@ -45,7 +45,8 @@ export default {
       'composer'
     ]),
     ...mapGetters([
-      'langSwitch'
+      'langSwitch',
+      'currentObjective'
     ]),
     availableGates () {
       return this.composer.availableGates.map(ag => this.composer.gateList.find(gl => ag === gl.symbol))

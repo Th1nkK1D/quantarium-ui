@@ -37,7 +37,8 @@ const mutations = {
     })
     Vue.set(state, 'stage', {
       id: 0,
-      storyMode: true
+      storyMode: true,
+      passConditions: []
     })
   },
   applySetting (state, setting) {

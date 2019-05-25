@@ -6,6 +6,11 @@
 </template>
 
 <style lang="scss">
+@keyframes glowing {
+  0%   { box-shadow: 0 0 10px 0 rgba(255, 253, 133, 0.8); }
+  50% { box-shadow: 0 0 20px 0 rgba(255, 253, 133, 0.8); }
+  100%   { box-shadow: 0 0 10px 0 rgba(255, 253, 133, 0.8); }
+}
 
 html, body {
   padding: 0;
@@ -88,7 +93,7 @@ body {
 }
 
 .is-objective {
-  box-shadow: 0px 0px 20px -2px rgba(255,255,255,0.8) !important
+  animation: glowing 1s infinite;
 }
 
 </style>
