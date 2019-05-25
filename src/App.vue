@@ -87,4 +87,8 @@ body {
   }
 }
 
+.is-objective {
+  box-shadow: 0px 0px 20px -2px rgba(255,255,255,0.8) !important
+}
+
 </style>

@@ -8,7 +8,10 @@
         :symbol="gate.symbol"
         :colors="gate.colors"
         :onClickGate="() => onClickGate(gate)"
-        :class="{ 'active-gate':  focusedGate && gate.symbol === focusedGate.symbol }"
+        :class="{
+          'active-gate':  focusedGate && gate.symbol === focusedGate.symbol,
+          'is-objective': currentObjective && currentObjective.trigger.indexOf('composer-gate') >= 0 && currentObjective.parameter === gate.symbol
+        }"
       />
     </div><!-- end of gates list -->
     <!-- gate detail -->
@@ -41,7 +44,8 @@ export default {
   computed: {
     ...mapGetters([
       'focusedGate',
-      'langSwitch'
+      'langSwitch',
+      'currentObjective'
     ])
   },
   methods: {

@@ -23,6 +23,9 @@ const getters = {
   },
   storyIsDone (state) {
     return state.stage.id === state.story.total
+  },
+  currentObjective (state) {
+    return state.stage.passConditions[0]
   }
 }
 
