@@ -37,6 +37,7 @@ body {
     font-weight: bold;
     font-size: 1.2em;
     text-decoration: none;
+    z-index: 15;
   }
 }
 

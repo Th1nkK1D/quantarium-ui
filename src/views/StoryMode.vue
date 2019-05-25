@@ -1,6 +1,6 @@
 <template>
   <div class="fx fx-col story-mode">
-    <div v-if="!storyIsDone" class="fx fx-col stage">
+    <div v-if="storyIsDone === undefined || !storyIsDone" class="fx fx-col stage">
       <div class="composer-wrapper" v-if="composerIsDisplayed">
         <div v-if="narrativeIsPending" class="blocker">
         </div>

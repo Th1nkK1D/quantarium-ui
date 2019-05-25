@@ -50,6 +50,7 @@ const actions = {
       isDisplay: true,
       availableGates: gates.map(g => g.symbol),
       allowMeasure: true,
+      allowReset: true,
       appliedGates: newState.gates,
       collapsed: newState.collapsed !== false,
       measurement: newState.measurement
