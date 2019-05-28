@@ -38,8 +38,8 @@
     },
     "narrator": {
       "text": [
-        "I think you know how important of computer is nowaday.",
-        "เธอคงรู้อยู่แล้วล่ะว่าปัจจุบันคอมพิวเตอร์สำคัญต่อพวกเรามากแค่ไหน"
+        "Computer is very important to us nowaday, but there are still many complex problem that can’t be solved by these computer.",
+        "คอมพิวเตอร์สำคัญต่อพวกเรามากในปัจจุบัน แต่ว่าก็ยังมีปัญหาทางการคำนวณหลายอย่างที่ซับซ้อนเกินกว่าจะใช้คอมพิวเตอร์เหล่านี้หาคำตอบ"
       ]
     }
   },
@@ -51,47 +51,8 @@
     },
     "narrator": {
       "text": [
-        "But there are still many complex problem that can’t be solved by these computer.",
-        "แต่ว่าก็ยังมีปัญหาทางการคำนวณหลายอย่าง ที่ซับซ้อนเกินกว่าจะใช้คอมพิวเตอร์ในปัจจุบันหาคำตอบ"
-      ]
-    }
-  },
-  {
-    "stage": {
-      "passConditions": [
-        { "trigger": "narrator-text-read" }
-      ]
-    },
-    "narrator": {
-      "text": [
-        "A new way of computing is needed.",
-        "เราเลยจำเป็นต้องหาวิธีการคำนวนทางคอมพิวเตอร์แบบใหม่"
-      ]
-    }
-  },
-  {
-    "stage": {
-      "passConditions": [
-        { "trigger": "narrator-text-read" }
-      ]
-    },
-    "narrator": {
-      "text": [
-        "So quantum computing was invented using modern physics theory like quantum physics",
-        "การคำนวณเชิงควอนตัมจึงถูกคิดค้นขึ้น โดยใช้ความรู้ทางฟิสิกส์สมัยใหม่อย่างควอนตัมฟิสิกส์เข้ามาช่วย"
-      ]
-    }
-  },
-  {
-    "stage": {
-      "passConditions": [
-        { "trigger": "narrator-text-read" }
-      ]
-    },
-    "narrator": {
-      "text": [
-        "And it change the way that computer work completely.",
-        "และมันก็ได้เปลี่ยนวิธีการคำนวณของคอมพิวเตอร์แบบเดิมไปโดยสิ้นเชิง"
+        "A new way of computing is needed. So quantum computing was invented.",
+        "เราเลยจำเป็นต้องหาวิธีการคำนวนทางคอมพิวเตอร์แบบใหม่ การคำนวณเชิงควอนตัมจึงถูกคิดค้นขึ้น"
       ]
     }
   },
@@ -233,8 +194,8 @@
     },
     "narrator": {
       "text": [
-        "Look at the qubit, now it is neither 0 or 1 but in between. We called this state as a “Superposition”",
-        "ลองดูที่คิวบิทสิ! ตอนนี้สภาวะของระบบไม่ใช่ 0 หรือ 1 แต่กลับอยู่ตรงกลาง เราเรียกสภาวะที่จุดนี้ว่า การทับซ้อนของคลื่น (Superposition)"
+        "Look at the sphere, now qubit is neither 0 or 1 but in between. We called this state as a “Superposition”",
+        "ลองดูที่ทรงกลมสิ! ตอนนี้สภาวะของคิวบิทไม่ใช่ 0 หรือ 1 แต่กลับอยู่ตรงกลาง เราเรียกสภาวะที่จุดนี้ว่า การทับซ้อนของคลื่น (Superposition)"
       ]
     }
   },
@@ -326,8 +287,8 @@
     },
     "narrator": {
       "text": [
-        "The chance of getting 1 and 0 is related to the distance from qubit state before a measurement.",
-        "ความน่าจะเป็นที่จะวัดค่าได้ 0 และ 1 สัมพันธ์กับระยะห่างจากสภาวะของคิวบิทก่อนที่จะทำการวัด"
+        "As you can see, the equally superposition give both 0 and 1 result with equally probability.",
+        "จากผลลัพธ์ที่เธอเห็น สภาวะการทับซ้อนของคลื่นที่เท่ากันให้ผลลัพธ์จากการวัดเป็น 0 และ 1 ด้วยความน่าจะเป็นที่เท่าๆ กัน"
       ]
     }
   },
@@ -339,11 +300,12 @@
     },
     "narrator": {
       "text": [
-        "As you can see, the equally superposition would give both 0 and 1 result with equally probability.",
-        "จากผลลัพธ์ที่เธอเห็น สภาวะการทับซ้อนของคลื่นที่เท่ากัน ย่อมมีโอกาสให้ผลลัพธ์จากการวัดเป็น 0 และ 1 ด้วยความน่าจะเป็นที่เท่าๆ กัน"
+        "That's because the chance of getting 0 and 1 is related to the distance from qubit state before a measurement.",
+        "นั่นเป็นเพราะว่าความน่าจะเป็นที่จะวัดค่าได้ 0 และ 1 สัมพันธ์กับระยะห่างจากสภาวะของคิวบิทก่อนที่จะทำการวัด"
       ]
     }
   },
+  
   {
     "stage": {
       "passConditions": [
@@ -352,25 +314,12 @@
     },
     "narrator": {
       "text": [
-        "Right now, Quantum computer hardware is still under development.",
-        "ในปัจจุบัน เครื่องควอนตัมคอมพิวเตอร์ยังคงอยู่ระหว่างการพัฒนา"
+        "Even though quantum computer is still under development, researcher already designed quantum algorithms that can solve some particular problems with more efficientcy.",
+        "ถึงแม่ว่าเครื่องควอนตัมคอมพิวเตอร์ยังคงอยู่ระหว่างการพัฒนา นักวิจัยสามารถออกแบบอัลกอลิทึมเชิงควอนตัม ที่สามารถแก้ไขปัญหาการคำนวณบางประเภทได้รวดเร็วกว่าเดิม"
       ]
     },
     "composer": {
       "isDisplay": false
-    }
-  },
-  {
-    "stage": {
-      "passConditions": [
-        { "trigger": "narrator-text-read" }
-      ]
-    },
-    "narrator": {
-      "text": [
-        "But with knowledges about qubit, researcher can design quantum algorithms to solve some particular problems in more efficient way.",
-        "แต่ด้วยความรู้ที่มีเกี่ยวกับคิวบิท นักวิจัยจึงสามารถออกแบบอัลกอลิทึมเชิงควอนตัม ที่สามารถแก้ไขปัญหาการคำนวณบางประเภทได้รวดเร็วกว่าเดิม"
-      ]
     }
   },
   {
