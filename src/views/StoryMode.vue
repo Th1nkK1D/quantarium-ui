@@ -61,9 +61,9 @@ export default {
 
 <style lang="scss" scoped>
   @keyframes floating {
-    0%   { transform: translateY(-2%); }
-    50% { transform: translateY(2%); }
-    100% { transform: translateY(-2%); }
+    0%   { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(-5px); }
   }
 
   .story-mode {
@@ -96,7 +96,7 @@ export default {
       width: 25vw;
       height: auto;
       z-index: 15;
-      animation: floating 4s infinite;
+      animation: floating 3s infinite;
     }
 
     .ending-menu {
