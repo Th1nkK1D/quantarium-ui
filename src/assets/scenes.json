@@ -210,8 +210,8 @@
     },
     "narrator": {
       "text": [
-        "Let’s try adding new gates to move qubit state toward blinking point!",
-        "คราวนี้เธอลองเลือกใช้ตัวเนินการใหม่ๆ เพื่อเปลี่ยนสภาวะของคิวบิทไปอยู่ในจุดที่กระพริบอยู่บททรงกลมดูสิ"
+        "Let’s try adding new gates to move qubit state toward the red blinking point!",
+        "คราวนี้เธอลองเลือกใช้ตัวเนินการใหม่ๆ เพื่อเปลี่ยนสภาวะของคิวบิทไปอยู่ในจุดสีแดงที่กระพริบอยู่บททรงกลมดูสิ"
       ]
     },
     "composer": {
